@@ -40,6 +40,7 @@ define(['angular', 'angular-route', 'angular-animate', 'jquery'], function(angul
 
     app.animation('.my-slide-animation', function() {
       return {
+        // TODO: Replace with move.js css3 animations
         enter : function(element, done) {
           jQuery(element).css({
             position:'absolute',
