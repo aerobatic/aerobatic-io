@@ -1,16 +1,58 @@
-<!-- Bootstrap  -->
-<link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-<!-- web font  -->
-<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,800" rel="stylesheet" type="text/css">
+<div id="appContainer">
+  <!-- Bootstrap  -->
+  <link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  <!-- web font  -->
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,800" rel="stylesheet" type="text/css">
+  <link type="text/css" rel="stylesheet" asset-href="font/fontello-embedded">
 
-<link type="text/css" rel="stylesheet" ng-href="css/custom-icons.css">
+  <!-- Custom css -->
+  <!-- <link type="text/css" rel="Stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/flexslider/2.2.2/flexslider-min.css"> -->
+  <link type="text/css" rel="stylesheet" asset-href="css/theme">
+  <link type="text/css" rel="stylesheet" asset-href="css/custom">
 
-<link type="text/css" rel="stylesheet" ng-href="css/custom-icons-ie7.css">
-<!-- Custom css -->
-<link type="text/css" rel="stylesheet" ng-href="css/layout.css">
-<link type="text/css" id="colors" rel="stylesheet" ng-href="css/colors.css">
-<script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.7.1/modernizr.min.js"></script>
+  <div data-spy="scroll" data-target="#scrollTarget" data-offset="150" ng-cloak>
+    <!-- header -->
+    <header id="mainHeader" class="navbar-fixed-top" role="banner" ng-controller="HeaderCtrl">
+      <div class="container">
+        <nav class="navbar navbar-default scrollMenu" role="navigation">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#" ng-click="loadView('index', $event)">
+              <img asset-src="images/aerobatic_logo.png" alt="Aerobatic - wings for nimble web apps" />
+            </a>
+          </div>
+          <div class="collapse navbar-collapse navbar-ex1-collapse" id="scrollTarget">
+            <ul class="nav navbar-nav pull-right">
+              <!-- <li>
+                <a href="#services"><i class="icon-thumbs-up"></i>Features</a>
+              </li> -->
+              <li>
+                <a href="#docs"><i class="icon-book"></i>Docs</a>
+              </li>
+              <li>
+                <a href="#gallery"><i class="icon-picture"></i>Gallery</a>
+              </li>
+              <!-- <li><a href="#about"><i class="icon-star"></i>Pricing</a> -->
+              </li>
+              <!-- <li><a href="#contactSlice"><i class="icon-mail"></i>Contact</a> -->
+              </li>
+              <li><a href="#blog"><i class="icon-bullhorn"></i>Blog</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
 
-<div ng-view>
+    <!-- content -->
 
+    <div class="view-container">
+      <div ng-view class="my-slide-animation"></div>
+    </div>
+  </div>
 </div>

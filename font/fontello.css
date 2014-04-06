@@ -1,0 +1,101 @@
+@font-face {
+  font-family: 'fontello';
+  src: url('../font/fontello.eot?78156684');
+  src: url('../font/fontello.eot?78156684#iefix') format('embedded-opentype'),
+       url('../font/fontello.woff?78156684') format('woff'),
+       url('../font/fontello.ttf?78156684') format('truetype'),
+       url('../font/fontello.svg?78156684#fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'fontello';
+    src: url('../font/fontello.svg?78156684#fontello') format('svg');
+  }
+}
+*/
+ 
+ [class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+ 
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+ 
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+     
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+ 
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+ 
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+ 
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+ 
+.icon-mail:before { content: '\e810'; } /* '' */
+.icon-paper-plane-1:before { content: '\e82c'; } /* '' */
+.icon-star-empty:before { content: '\e812'; } /* '' */
+.icon-lock:before { content: '\e81b'; } /* '' */
+.icon-code:before { content: '\e80c'; } /* '' */
+.icon-comment-empty:before { content: '\e802'; } /* '' */
+.icon-cog-alt:before { content: '\e814'; } /* '' */
+.icon-wrench-1:before { content: '\e80d'; } /* '' */
+.icon-lightbulb:before { content: '\e826'; } /* '' */
+.icon-shuffle:before { content: '\e804'; } /* '' */
+.icon-tablet:before { content: '\e80f'; } /* '' */
+.icon-flash:before { content: '\e806'; } /* '' */
+.icon-fork:before { content: '\e817'; } /* '' */
+.icon-rocket:before { content: '\e815'; } /* '' */
+.icon-bug:before { content: '\e816'; } /* '' */
+.icon-magic:before { content: '\e807'; } /* '' */
+.icon-gauge:before { content: '\e81c'; } /* '' */
+.icon-terminal:before { content: '\e81d'; } /* '' */
+.icon-css3:before { content: '\e818'; } /* '' */
+.icon-github:before { content: '\e803'; } /* '' */
+.icon-github-circled:before { content: '\e801'; } /* '' */
+.icon-html5:before { content: '\e819'; } /* '' */
+.icon-twitter:before { content: '\e82d'; } /* '' */
+.icon-picture:before { content: '\e82e'; } /* '' */
+.icon-heart-empty:before { content: '\e811'; } /* '' */
+.icon-book:before { content: '\e82f'; } /* '' */
+.icon-block:before { content: '\e808'; } /* '' */
+.icon-network:before { content: '\e830'; } /* '' */
+.icon-chart-line:before { content: '\e81f'; } /* '' */
+.icon-chart-bar:before { content: '\e820'; } /* '' */
+.icon-database:before { content: '\e81e'; } /* '' */
+.icon-upload-cloud-outline:before { content: '\e81a'; } /* '' */
+.icon-arrows-cw:before { content: '\e824'; } /* '' */
+.icon-cloud:before { content: '\e800'; } /* '' */
+.icon-cloud-flash:before { content: '\e825'; } /* '' */
+.icon-plane-outline:before { content: '\e827'; } /* '' */
+.icon-lock-empty:before { content: '\e828'; } /* '' */
+.icon-mobile:before { content: '\e80e'; } /* '' */
+.icon-wrench:before { content: '\e80a'; } /* '' */
+.icon-bullhorn:before { content: '\e809'; } /* '' */
+.icon-clock-alt:before { content: '\e829'; } /* '' */
+.icon-signal:before { content: '\e80b'; } /* '' */
+.icon-search-1:before { content: '\e822'; } /* '' */
+.icon-paper-plane:before { content: '\e82a'; } /* '' */
+.icon-google:before { content: '\e805'; } /* '' */
+.icon-search:before { content: '\e821'; } /* '' */
+.icon-mail-1:before { content: '\e82b'; } /* '' */
+.icon-thumbs-up:before { content: '\e813'; } /* '' */
+.icon-direction:before { content: '\e823'; } /* '' */
