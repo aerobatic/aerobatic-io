@@ -631,13 +631,6 @@ body#fullScreen #mainHeader{display:none;}
 #home{padding-top:44px;}
 #mapWrapper{ height:350px; }
 
-/*#homeFullScreen {
-  background-image: url('../images/theme-pics/big-city.jpg');
-  background-image: url('../images/theme-pics/paralax-1.jpg');
-  height:100%;
-  display:table;
-}
-*/
 #homeFullScreen .maskParent {display:table;}
 
 #fullScreenSliderWrapper{
@@ -1063,7 +1056,7 @@ h1, h2, h3, h4, h5, h6 {
   color:#222;
 }
 h2 {
- color:#888;  
+ color:#888;
 }
 h2 i {color:#999}
 h2.subTitle:after, h1.noSubtitle:after{
@@ -1161,7 +1154,7 @@ ul.iconsList li a:hover, ul.iconsList i {
 /* END LINKS AND BUTTONS
 ================================================== */
 
-/* MAIN MENU 
+/* MAIN MENU
 ================================================== */
 
 #mainHeader{
@@ -1183,10 +1176,10 @@ ul.iconsList li a:hover, ul.iconsList i {
   color:#fff;
 }
 
-/* END MAIN MENU 
+/* END MAIN MENU
 ================================================== */
 
-/* FOOTER 
+/* FOOTER
 ================================================== */
 
 footer {
@@ -1206,7 +1199,7 @@ p.credits a {
   color:#EB7F37;
 }
 
-/* END FOOTER 
+/* END FOOTER
 ================================================== */
 
 /* HOME
@@ -1374,7 +1367,7 @@ border:none}
 
 /*** Feature box **/
 
-.boxFeature i{color:#EB7F37;} 
+.boxFeature i{color:#EB7F37;}
 
 /*** slices ***/
 .slice{
@@ -1426,5 +1419,3 @@ border:none}
 .flexslider {
   border: none;
 }
-
-
