@@ -718,29 +718,6 @@ margin-bottom:-44px;
 }
 #flexHome h1:after  {content:''}
 #flexHome h2 {text-align:left; display: inline-block;}
-.flexslider .slides > li {height:110px;}
-
-.flex-control-nav{position:static; margin-top:22px;}
-.flex-control-nav li {margin-left: 0; margin-right:11px;}
-.flex-control-nav{display:none;}
-/** OWL SLIDER **/
-.owl-buttons {}
-.owl-theme .owl-controls .owl-buttons div{
-  position:absolute;
-  top:42%;
-  background:none;
-  font-family: 'custom-icons';
-  font-size:3em;
-  text-align:center;
-  color:#fff;
-
-
-}
-.owl-next {right:0;}
-.owl-prev {left:0;}
-.owl-next:before {content: '\e766';}
-.owl-prev:before {content: '\e765';}
-.owl-theme .owl-controls {margin-top:22px;}
 
 /*** MEDIA QUERIES ***/
 @media(max-width:400px){
@@ -927,51 +904,6 @@ header#project{padding:22px 0;}
 ul.socialNetwork {padding:0; display: block;}
 ul.socialNetwork li {display:inline-block; list-style-type: none;}
 
-/*** pricing table ***/
-.pricingBloc {
-  text-align:center;
-  margin-top:22px;
-}
-.pricingBloc ul {
-  list-style-type:none;
-  margin:0;
-  padding:0 1.5em;
-}
-.pricingBloc ul li {
-  padding:1.5em 0
-}
-.pricingBloc h2 {
-  font-size: 14px;
-  margin-bottom: 0;
-  padding: 11px;
-  font-weight: 300;
-}
-.pricingBloc h3 {
-  font-size: 44px;
-  font-weight: 400;
-  display: block;
-  padding: 22px;
-  margin-bottom: 0;
-}
-.pricingBloc h3 span {
-  font-size: 14px;
-  font-weight: 300;
-  margin: 11px 0 0 0;
-  display: block;
-  letter-spacing: normal;
-}
-.pricingBloc p {
-  margin-bottom:0;
-  padding:1.5em
-}
-.pricingBloc.focusPlan {
-  margin-top:0;
-}
-.pricingBloc.focusPlan h3 {
-  padding:1.25em;
-  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
-}
-/*** end pricing table ***/
 
 /*** responsive video ***/
 .videoWrapper {
