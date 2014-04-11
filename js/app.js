@@ -9,7 +9,7 @@
 define(['angular', 'angular-route', 'angular-animate', 'jquery'], function(angular) {
   'use strict';
 
-  require(['asset!partials/layout', 'asset!partials/index', 'asset!partials/docs', 'asset!partials/blog', 'asset!partials/gallery', 'asset!js/aerobatic-angular'], function(layoutView, indexView, docsView, blogView, galleryView) {
+  require(['asset!partials/layout', 'asset!partials/index', 'asset!partials/docs', 'asset!partials/blog', 'asset!partials/gallery', 'asset!partials/about', 'asset!js/aerobatic-angular'], function(layoutView, indexView, docsView, blogView, galleryView, aboutView) {
     var app = angular.module('aerobatic-io', ['ngRoute', 'ngAnimate', 'aerobatic']);
 
     app.config(['$routeProvider',
@@ -20,6 +20,8 @@ define(['angular', 'angular-route', 'angular-animate', 'jquery'], function(angul
           template: docsView
         }).when('/blog', {
           template: blogView
+        }).when('/about', {
+          template: aboutView
         }).when('/gallery', {
           template: galleryView
         }).otherwise({
