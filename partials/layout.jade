@@ -1,0 +1,43 @@
+#appContainer
+  link(type='text/css', rel='stylesheet', href='//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css')
+  link(href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,800', rel='stylesheet', type='text/css')
+  link(type='text/css', rel='stylesheet', asset-href='font/fontello-embedded')
+
+  //- Custom css
+  link(type='text/css', rel='stylesheet', asset-href='css/theme')
+  link(type='text/css', rel='stylesheet', asset-href='css/custom')
+
+  div(data-spy='scroll', data-target='#scrollTarget', data-offset='150', ng-cloak='ng-cloak')
+    //- header
+    header#mainHeader.navbar-fixed-top(role='banner', ng-controller='HeaderCtrl')
+      .container
+        nav.navbar.navbar-default.scrollMenu(role='navigation')
+          .navbar-header
+            button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-ex1-collapse')
+              span.sr-only Toggle navigation
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+            a.navbar-brand(href='#index')
+              img(asset-src='images/logo-small', alt='Aerobatic - wings for nimble web apps')
+          #scrollTarget.collapse.navbar-collapse.navbar-ex1-collapse
+            ul.nav.navbar-nav.pull-right
+              li
+                a(href='#docs')
+                  i.icon-book
+                  | Docs
+              li
+                a(href='#gallery')
+                  i.icon-picture
+                  | Gallery
+              li
+                a(href='#about')
+                  i.icon-info-circled
+                  | About
+              li
+                a(href='#blog')
+                  i.icon-bullhorn
+                  | Blog
+
+    .view-container
+      .my-slide-animation(ng-view='ng-view')
