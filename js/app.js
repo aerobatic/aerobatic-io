@@ -6,14 +6,45 @@
 
 // In the outer define bring in all the 3rd party dependencies.
 // , 'jquery-flexslider', 'jquery-scrollto', 'jquery-localscroll', 'jquery-stellar', 'jquery-owl-carousel'
-define(['angular', 'angular-route', 'angular-animate', 'jquery'], function(angular) {
+define([
+  'angular',
+  'google-analytics',
+  'aerobatic',
+  'angular-route',
+  'angular-animate',
+  'jquery'
+], function(angular, ga, aerobatic) {
   'use strict';
 
-  require(['asset!partials/layout', 'asset!partials/index', 'asset!partials/docs', 'asset!partials/blog', 'asset!partials/gallery', 'asset!partials/about', 'asset!js/aerobatic-angular'], function(layoutView, indexView, docsView, blogView, galleryView, aboutView) {
-    var app = angular.module('aerobatic-io', ['ngRoute', 'ngAnimate', 'aerobatic']);
+  require([
+    'asset!partials/layout',
+    'asset!partials/index',
+    'asset!partials/docs',
+    'asset!partials/blog',
+    'asset!partials/gallery',
+    'asset!partials/about',
+    'asset!js/aerobatic-angular'
+  ], function(layoutView, indexView, docsView, blogView, galleryView, aboutView) {
+    var app = angular.module('aerobatic-io', ['ngRoute', 'ngAnimate', 'aerobatic', 'analytics']);
 
-    app.config(['$routeProvider',
-      function($routeProvider) {
+    // Create a custom angular service that encapsulates the communication with google analytics
+    angular.module('analytics', []).service('analytics', ['$rootScope', '$location', function($rootScope, $location) {
+      // http://burgiblog.com/2013/07/09/google-analytics-and-requirejs/
+      $rootScope.$on('$viewContentLoaded', function() {
+        // https://developers.google.com/analytics/devguides/collection/analyticsjs/advanced#send
+        ga('send', 'pageview', {
+          page: $location.path()
+        });
+      });
+
+      return {
+        initialize: function() {
+          ga('create', aerobatic.config.settings.GOOGLE_ANALYTICS_TRACK_CODE, {});
+        }
+      }
+    }]);
+
+    app.config(['$routeProvider', function($routeProvider) {
         $routeProvider.when('/', {
           template: indexView
         }).when('/docs', {
@@ -29,6 +60,11 @@ define(['angular', 'angular-route', 'angular-animate', 'jquery'], function(angul
         });
       }
     ]);
+
+    app.run(['$log', 'analytics', function ($log, analytics) {
+      $log.info("Angular app aerobatic-io run event");
+      analytics.initialize();
+    }]);
 
     var headerCtrl = function($scope, $location) {
       // $scope.loadView = function(viewName, event) {
@@ -75,44 +111,6 @@ define(['angular', 'angular-route', 'angular-animate', 'jquery'], function(angul
       // Append an ng-view to the body to load our partial views into
       angular.element(document.body).append(angular.element(layoutView));
       angular.bootstrap(document, ['aerobatic-io']);
-
-      // $('#flexHome').flexslider({
-      //   animation: "slide",
-      //   controlNav: true,
-      //   directionNav: false,
-      //   touch: true,
-      //   direction: "vertical",
-      //   slideshow: true,
-      //   slideshowSpeed: 3000
-      // });
-
-      // if ($('.localscroll').length) {
-      //   $('.localscroll').localScroll({
-      //     lazy: true,
-      //     offset: {
-      //       top: -($('#mainHeader').height() - 1)
-      //     }
-      //   });
-      // }
-
-      // var isMobile = false;
-
-      // if (Modernizr.testProp('only all and (max-width: 1024px)')) {
-      //   isMobile = true;
-      // }
-
-      // if (isMobile === false && ($('#paralaxSlice1').length || isMobile === false && $('#paralaxSlice2').length)) {
-      //   $(window).stellar({
-      //     horizontalScrolling: false,
-      //     responsive: true
-      //     /*,
-      //       scrollProperty: 'scroll',
-      //       parallaxElements: false,
-      //       horizontalScrolling: false,
-      //       horizontalOffset: 0,
-      //       verticalOffset: 0*/
-      //   });
-      // }
     });
   });
 });
