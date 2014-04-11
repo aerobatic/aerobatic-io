@@ -1,7 +1,4 @@
 #appContainer
-  //- link(href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,800', rel='stylesheet', type='text/css')
-  //- link(type='text/css', rel='stylesheet', asset-href='font/fontello-embedded')
-
   div(data-spy='scroll', data-target='#scrollTarget', data-offset='150', ng-cloak='ng-cloak')
     //- header
     header#mainHeader.navbar-fixed-top(role='banner', ng-controller='HeaderCtrl')
@@ -14,7 +11,7 @@
               span.icon-bar
               span.icon-bar
             a.navbar-brand(href='#index')
-              img(asset-src='images/logo-large-beta', width='218', height='70', alt='Aerobatic - wings for nimble web apps')
+              img(asset-src='/images/logo-large-beta', width='218', height='70', alt='Aerobatic - wings for nimble web apps')
 
           #scrollTarget.collapse.navbar-collapse.navbar-ex1-collapse(ng-class="!navCollapsed && 'in'", ng-click="navCollapsed=true")
             ul.nav.navbar-nav.pull-right

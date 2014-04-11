@@ -1,4 +1,21 @@
 .view
-  h1 App Gallery
+  section.page
+    h1.noSubtitle App Gallery
+
+    .container
+      .row
+        .col-sm-6
+          .row.gallery-box
+            .col-xs-3
+              a(href="http://angular-seed.aerobaticapp.com", target="blank")
+                img(src="http://angular-seed.aerobaticapp.com/favicon-96x96.png", width="96", height="96")
+            .col-xs-9
+              h2 Angular Seed
+              p
+                | Starter project for building Aerobatic apps using the excellent AngularJS framework.
+              p
+                a(href="https://github.com/aerobatic/angular-seed", target="blank") View Source
+                |&nbsp;|&nbsp;
+                a(href="http://angular-seed.aerobaticapp.com") Live Preview
 
   include footer
