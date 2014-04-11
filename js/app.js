@@ -5,7 +5,6 @@
  */
 
 // In the outer define bring in all the 3rd party dependencies.
-// , 'jquery-flexslider', 'jquery-scrollto', 'jquery-localscroll', 'jquery-stellar', 'jquery-owl-carousel'
 define([
   'angular',
   'google-analytics',
@@ -13,7 +12,12 @@ define([
   'angular-route',
   'angular-animate',
   'angular-bootstrap',
-  'jquery'
+  'jquery',
+  'css!//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css',
+  'css!http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,800',
+  'css!font/fontello-embedded',
+  'css!css/theme',
+  'css!css/custom'
 ], function(angular, ga, aerobatic) {
   'use strict';
 
