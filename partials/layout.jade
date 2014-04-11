@@ -13,14 +13,15 @@
       .container
         nav.navbar.navbar-default.scrollMenu(role='navigation')
           .navbar-header
-            button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-ex1-collapse')
+            button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-ex1-collapse', ng-init="navCollapsed = true", ng-click="navCollapsed = !navCollapsed")
               span.sr-only Toggle navigation
               span.icon-bar
               span.icon-bar
               span.icon-bar
             a.navbar-brand(href='#index')
               img(asset-src='images/logo-small', alt='Aerobatic - wings for nimble web apps')
-          #scrollTarget.collapse.navbar-collapse.navbar-ex1-collapse
+
+          #scrollTarget.collapse.navbar-collapse.navbar-ex1-collapse(ng-class="!navCollapsed && 'in'", ng-click="navCollapsed=true")
             ul.nav.navbar-nav.pull-right
               li
                 a(href='#docs')

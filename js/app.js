@@ -12,6 +12,7 @@ define([
   'aerobatic',
   'angular-route',
   'angular-animate',
+  'angular-bootstrap',
   'jquery'
 ], function(angular, ga, aerobatic) {
   'use strict';
@@ -25,13 +26,14 @@ define([
     'asset!partials/about',
     'asset!js/aerobatic-angular'
   ], function(layoutView, indexView, docsView, blogView, galleryView, aboutView) {
-    var app = angular.module('aerobatic-io', ['ngRoute', 'ngAnimate', 'aerobatic', 'analytics']);
+    var app = angular.module('aerobatic-io', ['ngRoute', 'ngAnimate', 'ui.bootstrap', 'aerobatic']);
 
     // Create a custom angular service that encapsulates the communication with google analytics
-    angular.module('analytics', []).service('analytics', ['$rootScope', '$location', function($rootScope, $location) {
+    app.service('analytics', ['$rootScope', '$location', '$log', function($rootScope, $location, $log) {
       // http://burgiblog.com/2013/07/09/google-analytics-and-requirejs/
       $rootScope.$on('$viewContentLoaded', function() {
         // https://developers.google.com/analytics/devguides/collection/analyticsjs/advanced#send
+        $log.info("Page view changed to " + $location.path());
         ga('send', 'pageview', {
           page: $location.path()
         });
@@ -39,9 +41,10 @@ define([
 
       return {
         initialize: function() {
+          // Initialize google analytics tracking
           ga('create', aerobatic.config.settings.GOOGLE_ANALYTICS_TRACK_CODE, {});
         }
-      }
+      };
     }]);
 
     app.config(['$routeProvider', function($routeProvider) {
@@ -67,10 +70,12 @@ define([
     }]);
 
     var headerCtrl = function($scope, $location) {
-      // $scope.loadView = function(viewName, event) {
-      //   $location.path(viewName);
-      //   event.preventDefault();
-      // };
+      // http://plnkr.co/edit/OlCCnbGlYWeO7Nxwfj5G?p=preview
+      $scope.navCollapsed = true;
+
+      $scope.toggleNav = function() {
+        $scope.navCollapsed = !$scope.navCollapsed;
+      }
     };
 
     headerCtrl.$inject = ['$scope', '$location'];

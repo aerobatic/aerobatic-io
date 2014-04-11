@@ -9,6 +9,9 @@
     "angular-animate": {
       "deps": ["angular"]
     },
+    "angular-bootstrap": {
+      "deps": ["angular"]
+    },
     "jquery": {
       "exports": "$"
     },
@@ -21,6 +24,7 @@
     "angular": ["//ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min"],
     "angular-route": ["//ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular-route.min"],
     "angular-animate": ["//ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular-animate.min"],
+    "angular-bootstrap": ["//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap.min"],
     "jquery": ["//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min"],
     "google-analytics": ["//www.google-analytics.com/analytics"]
   },
