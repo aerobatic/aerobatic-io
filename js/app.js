@@ -9,6 +9,7 @@ define([
   'angular',
   'google-analytics',
   'aerobatic',
+  'asset!js/move',
   'angular-route',
   'angular-animate',
   'angular-bootstrap',
@@ -18,7 +19,7 @@ define([
   'css!font/fontello-embedded',
   'css!css/theme',
   'css!css/custom'
-], function(angular, ga, aerobatic) {
+], function(angular, ga, aerobatic, move) {
   'use strict';
 
   require([
@@ -89,12 +90,25 @@ define([
       return {
         // TODO: Replace with move.js css3 animations
         enter : function(element, done) {
+          // move(element[0])
+          //   .set('display', 'block')
+          //   .set('position', 'absolute')
+          //   .set('z-index', 100)
+          //   .set('top', 600)
+          //   .set('opacity', 0)
+          //   .then()
+          //   .translate(0, 0)
+          //   .duration('.2s')
+          //   .set('opacity', 1)
+          //   .end(done);
+
           jQuery(element).css({
             position:'absolute',
             'z-index':100,
             top:600,
             opacity:0
           });
+
           jQuery(element).animate({
             top:0,
             opacity:1
@@ -102,6 +116,11 @@ define([
         },
 
         leave : function(element, done) {
+          // move(element[0])
+          //   .set('opacity', '1')
+          //   .duration('.2s')
+          //   .end(done);
+
           jQuery(element).css({
             position:'absolute',
             'z-index':101,

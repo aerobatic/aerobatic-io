@@ -3,6 +3,9 @@
 a.navbar-brand
   padding-top: 10px
 
+  img
+    height:70px
+
 div.view-container
   position: relative
   width: 100%
@@ -19,3 +22,12 @@ div[ng-view]
 
 section.page
   padding-top: 20px
+
+// Mobile screen style overrides
+@media (max-width: 764px)
+  body
+    padding-top: 65px
+
+  a.navbar-brand
+    img
+      height: 50px
