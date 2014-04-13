@@ -86,55 +86,6 @@ define([
     headerCtrl.$inject = ['$scope', '$location'];
     app.controller('HeaderCtrl', headerCtrl);
 
-    app.animation('.my-slide-animation', function() {
-      return {
-        // TODO: Replace with move.js css3 animations
-        enter : function(element, done) {
-          // move(element[0])
-          //   .set('display', 'block')
-          //   .set('position', 'absolute')
-          //   .set('z-index', 100)
-          //   .set('top', 600)
-          //   .set('opacity', 0)
-          //   .then()
-          //   .translate(0, 0)
-          //   .duration('.2s')
-          //   .set('opacity', 1)
-          //   .end(done);
-
-          jQuery(element).css({
-            position:'absolute',
-            'z-index':100,
-            top:600,
-            opacity:0
-          });
-
-          jQuery(element).animate({
-            top:0,
-            opacity:1
-          }, done);
-        },
-
-        leave : function(element, done) {
-          // move(element[0])
-          //   .set('opacity', '1')
-          //   .duration('.2s')
-          //   .end(done);
-
-          jQuery(element).css({
-            position:'absolute',
-            'z-index':101,
-            top:0,
-            opacity:1
-          });
-          jQuery(element).animate({
-            top:-600,
-            opacity:0
-          }, done);
-        }
-      };
-    });
-
     angular.element(document).ready(function() {
       // Append an ng-view to the body to load our partial views into
       angular.element(document.body).append(angular.element(layoutView));

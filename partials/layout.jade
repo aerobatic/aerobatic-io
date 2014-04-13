@@ -32,5 +32,10 @@
                   i.icon-bullhorn
                   | Blog
 
-    .view-container
-      .my-slide-animation(ng-view='ng-view')
+    //- .view-container
+      //- .my-slide-animation(ng-view='ng-view')
+
+.view-animate-container.rtl
+  div.view-animate(ng-view)
+
+//- div(ng-view, ng-animate="{enter: 'enter', leave: 'leave'}")
