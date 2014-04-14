@@ -13,7 +13,6 @@ define([
   'angular-route',
   'angular-animate',
   'angular-bootstrap',
-  'jquery',
   'css!//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css',
   'css!http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,800',
   'css!font/fontello-embedded',
@@ -78,8 +77,18 @@ define([
       // http://plnkr.co/edit/OlCCnbGlYWeO7Nxwfj5G?p=preview
       $scope.navCollapsed = true;
 
+      $scope.navClick = function(path, event) {
+        $location.path(path);
+        event.target.blur();
+        event.preventDefault();
+      }
+
       $scope.toggleNav = function() {
         $scope.navCollapsed = !$scope.navCollapsed;
+      };
+
+      $scope.navSelected = function(path) {
+        return $location.path() == path;
       }
     };
 
