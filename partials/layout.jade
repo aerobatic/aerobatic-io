@@ -1,7 +1,7 @@
-#appContainer
+#appContainer(ng-controller='HeaderCtrl')
   div(ng-cloak='ng-cloak')
     //- header
-    header#mainHeader.navbar-fixed-top(role='banner', ng-controller='HeaderCtrl')
+    header#mainHeader.navbar-fixed-top(role='banner')
       .container
         nav.navbar.navbar-default.scrollMenu(role='navigation')
           .navbar-header
@@ -10,28 +10,32 @@
               span.icon-bar
               span.icon-bar
               span.icon-bar
-            a.navbar-brand(href='#index')
+            a.navbar-brand(href='#!/index')
               img(asset-src='images/logo-large-beta', alt='Aerobatic - wings for nimble web apps')
               {{location.path()}}
 
           .collapse.navbar-collapse.navbar-ex1-collapse(ng-class="!navCollapsed && 'in'", ng-click="navCollapsed=true")
             ul.nav.navbar-nav.pull-right
               li(ng-class="{current:navSelected('/docs')}")
-                a(href='#', ng-click="navClick('/docs', $event)")
+                a(href='/docs', ng-click="navClick('/docs', $event)")
                   i.icon-book
                   | Docs
               li(ng-class="{current:navSelected('/gallery')}")
-                a(href='#', ng-click="navClick('/gallery', $event)")
+                a(href='/gallery', ng-click="navClick('/gallery', $event)")
                   i.icon-picture
                   | Gallery
               li(ng-class="{current:navSelected('/about')}")
-                a(href='#', ng-click="navClick('/about', $event)")
+                a(href='/about', ng-click="navClick('/about', $event)")
                   i.icon-info-circled
                   | About
               li(ng-class="{current:navSelected('/blog')}")
-                a(href='#', ng-click="navClick('/blog', $event)")
+                a(href='/blog', ng-click="navClick('/blog', $event)")
                   i.icon-bullhorn
                   | Blog
 
-.view-animate-container.rtl
-  div.view-animate(ng-view)
+  .row
+    .col-md-3.hidden-xs(ng-show="showLeftMenu()")
+      h3 Hidden Left Menu
+    .col-xs-12(ng-class="showLeftMenu() ? 'col-md-9' : 'col-md-12'")
+      .view-animate-container.rtl
+        div.view-animate(ng-view)

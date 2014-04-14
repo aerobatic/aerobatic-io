@@ -51,10 +51,14 @@ define([
       };
     }]);
 
-    app.config(['$routeProvider', function($routeProvider) {
+    app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+        // Use the bang prefix for Google ajax crawlability
+        // https://developers.google.com/webmasters/ajax-crawling/docs/specification?csw=1
+        $locationProvider.hashPrefix('!');
+
         $routeProvider.when('/', {
           template: indexView
-        }).when('/docs', {
+        }).when('/docs/:section?', {
           template: docsView
         }).when('/blog', {
           template: blogView
@@ -74,6 +78,10 @@ define([
     }]);
 
     var headerCtrl = function($scope, $location) {
+      $scope.showLeftMenu = function() {
+        return $location.path().substring(0, 5) == '/docs';
+      };
+
       // http://plnkr.co/edit/OlCCnbGlYWeO7Nxwfj5G?p=preview
       $scope.navCollapsed = true;
 
@@ -94,6 +102,18 @@ define([
 
     headerCtrl.$inject = ['$scope', '$location'];
     app.controller('HeaderCtrl', headerCtrl);
+
+    var docsCtrl = function($scope, $location, $anchorScroll) {
+      $scope.goto = function(section, event) {
+
+        $location.path("/docs/" + section);
+        // $anchorScroll();
+        event.preventDefault();
+      };
+    };
+    docsCtrl.$inject = ['$scope', '$location', '$anchorScroll'];
+
+    app.controller('DocsCtrl', docsCtrl);
 
     angular.element(document).ready(function() {
       // Append an ng-view to the body to load our partial views into
