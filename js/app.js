@@ -38,15 +38,19 @@ define([
       $rootScope.$on('$viewContentLoaded', function() {
         // https://developers.google.com/analytics/devguides/collection/analyticsjs/advanced#send
         $log.info("Page view changed to " + $location.path());
-        ga('send', 'pageview', {
-          page: $location.path()
-        });
+
+        if (aerobatic.config.simulator !== true) {
+          ga('send', 'pageview', {
+            page: $location.path()
+          });
+        }
       });
 
       return {
         initialize: function() {
           // Initialize google analytics tracking
-          ga('create', aerobatic.config.settings.GOOGLE_ANALYTICS_TRACK_CODE, {});
+          if (aerobatic.config.simulator !== true)
+            ga('create', aerobatic.config.settings.GOOGLE_ANALYTICS_TRACK_CODE, {});
         }
       };
     }]);
@@ -77,7 +81,7 @@ define([
       analytics.initialize();
     }]);
 
-    var headerCtrl = function($scope, $location) {
+    var mainCtrl = function($scope, $location) {
       $scope.showLeftMenu = function() {
         return $location.path().substring(0, 5) == '/docs';
       };
@@ -85,11 +89,16 @@ define([
       // http://plnkr.co/edit/OlCCnbGlYWeO7Nxwfj5G?p=preview
       $scope.navCollapsed = true;
 
-      $scope.navClick = function(path, event) {
-        $location.path(path);
-        event.target.blur();
-        event.preventDefault();
-      }
+      $scope.isActiveToc = function(path) {
+        var pathParts = $location.path().split('/');
+        return pathParts[pathParts.length - 1] == path;
+      };
+
+      // $scope.navClick = function(path, event) {
+      //   $location.path(path);
+      //   event.target.blur();
+      //   event.preventDefault();
+      // }
 
       $scope.toggleNav = function() {
         $scope.navCollapsed = !$scope.navCollapsed;
@@ -100,18 +109,13 @@ define([
       }
     };
 
-    headerCtrl.$inject = ['$scope', '$location'];
-    app.controller('HeaderCtrl', headerCtrl);
+    mainCtrl.$inject = ['$scope', '$location'];
+    app.controller('MainCtrl', mainCtrl);
 
-    var docsCtrl = function($scope, $location, $anchorScroll) {
-      $scope.goto = function(section, event) {
-
-        $location.path("/docs/" + section);
-        // $anchorScroll();
-        event.preventDefault();
-      };
+    var docsCtrl = function($scope, $location, $routeParams) {
+      $scope.heading = $routeParams.section;
     };
-    docsCtrl.$inject = ['$scope', '$location', '$anchorScroll'];
+    docsCtrl.$inject = ['$scope', '$location', '$routeParams'];
 
     app.controller('DocsCtrl', docsCtrl);
 
