@@ -9,8 +9,16 @@ body
   height: 100%
 
 // Get rid of annoying Firefox link borders
-a
+a, a:hover, a:active
   outline: 0
+
+a::-moz-focus-inner
+  border: 0
+
+:focus
+  outline:none
+::-moz-focus-inner
+  border:0
 
 a.navbar-brand
   padding-top: 10px
@@ -22,12 +30,8 @@ ul.navbar-nav
   li.current *
     color: #000
 
-.view-animate-container
-  position:relative;
-  height:100%;
-  // overflow: hidden
-  // overflow-y:scroll;
-  // overflow-x:hidden
+.left-menu
+  z-index: 1000
 
 // The left column table of contents
 .well.toc
@@ -39,14 +43,17 @@ ul.navbar-nav
     text-decoration: none
     font-weight: 500
 
-// .view-animate {
-//   // padding:10px;
-// }
+.view-animate-container
+  min-height: 500px
+  position:relative;
+  // height:100%;
+  // overflow: hidden
+  // overflow-y:scroll;
+  // overflow-x:hidden
 
 // Animation styles based on example here:
 // http://embed.plnkr.co/p7WZdsy0FznV3zo7VWjU/style.css
 .view-animate.ng-enter, .view-animate.ng-leave
-  // -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.3s;
   transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.3s;
 
   display:block;

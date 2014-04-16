@@ -3,7 +3,17 @@ define(['angular', 'aerobatic'], function(angular, aerobatic) {
 
   var module = angular.module('aerobatic', []);
 
-  module.factory('aerobatic', [function() {
+  module.factory('aerobatic', ['$q', function($q) {
+    // Promise wrapper around the require function to allow
+    // angular to asynchrounously pull in assets following angular idioms.
+    aerobatic.requireAsset = function(path) {
+      var deferred = $q.defer();
+      require(['asset!' + path], function(asset) {
+        deferred.resolve(asset);
+      });
+      return deferred.promise;
+    };
+
     return aerobatic;
   }]);
 

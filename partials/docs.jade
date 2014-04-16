@@ -1,5 +1,3 @@
 .view
   section.page.container(ng-controller="DocsCtrl")
-    h1 {{heading}}
-    
-  //- include footer
+    div(ng-bind-html="content")

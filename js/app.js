@@ -28,9 +28,15 @@ define([
     'asset!partials/blog',
     'asset!partials/gallery',
     'asset!partials/about',
+    'asset!js/controllers',
     'asset!js/aerobatic-angular'
-  ], function(layoutView, indexView, docsView, blogView, galleryView, aboutView) {
+  ], function(layoutView, indexView, docsView, blogView, galleryView, aboutView, controllers) {
     var app = angular.module('aerobatic-io', ['ngRoute', 'ngAnimate', 'ui.bootstrap', 'aerobatic']);
+
+    // Register each of the controllers with the app
+    for (var ctrl in controllers) {
+      app.controller(ctrl, controllers[ctrl]);
+    }
 
     // Create a custom angular service that encapsulates the communication with google analytics
     app.service('analytics', ['$rootScope', '$location', '$log', function($rootScope, $location, $log) {
@@ -62,7 +68,7 @@ define([
 
         $routeProvider.when('/', {
           template: indexView
-        }).when('/docs/:section?', {
+        }).when('/docs/:page?', {
           template: docsView
         }).when('/blog', {
           template: blogView
@@ -80,44 +86,6 @@ define([
       $log.info("Angular app aerobatic-io run event");
       analytics.initialize();
     }]);
-
-    var mainCtrl = function($scope, $location) {
-      $scope.showLeftMenu = function() {
-        return $location.path().substring(0, 5) == '/docs';
-      };
-
-      // http://plnkr.co/edit/OlCCnbGlYWeO7Nxwfj5G?p=preview
-      $scope.navCollapsed = true;
-
-      $scope.isActiveToc = function(path) {
-        var pathParts = $location.path().split('/');
-        return pathParts[pathParts.length - 1] == path;
-      };
-
-      // $scope.navClick = function(path, event) {
-      //   $location.path(path);
-      //   event.target.blur();
-      //   event.preventDefault();
-      // }
-
-      $scope.toggleNav = function() {
-        $scope.navCollapsed = !$scope.navCollapsed;
-      };
-
-      $scope.navSelected = function(path) {
-        return $location.path() == path;
-      }
-    };
-
-    mainCtrl.$inject = ['$scope', '$location'];
-    app.controller('MainCtrl', mainCtrl);
-
-    var docsCtrl = function($scope, $location, $routeParams) {
-      $scope.heading = $routeParams.section;
-    };
-    docsCtrl.$inject = ['$scope', '$location', '$routeParams'];
-
-    app.controller('DocsCtrl', docsCtrl);
 
     angular.element(document).ready(function() {
       // Append an ng-view to the body to load our partial views into

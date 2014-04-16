@@ -32,9 +32,9 @@
                 i.icon-bullhorn
                 | Blog
 
-  div(ng-class="{container:showLeftMenu()}")
+  div.clearfix(ng-class="{container:showLeftMenu()}")
     .row
-      .col-md-3.hidden-xs(ng-class="{hidden:!showLeftMenu()}")
+      .col-md-3.hidden-xs.left-menu(ng-class="{hidden:!showLeftMenu()}")
         div.well.toc
           h3 Table of Contents
           ul
