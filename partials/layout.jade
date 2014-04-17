@@ -34,8 +34,8 @@
 
   div.clearfix(ng-class="{container:showLeftMenu()}")
     .row
-      .col-md-3.hidden-xs.left-menu(ng-class="{hidden:!showLeftMenu()}")
-        div.well.toc
+      .col-md-3.visible-md.visible-lg.left-menu(ng-class="{hidden:!showLeftMenu()}")
+        div.toc.well
           h3 Table of Contents
           ul
             li
@@ -47,7 +47,7 @@
             li
               a(href="#!/docs/seo", ng-class="{active:isActiveToc('seo')}") SEO
             li
-              a(href="#!/docs/security", ng-class="{active:isActiveToc('security')}") Security/Authentication
+              a(href="#!/docs/security", ng-class="{active:isActiveToc('security')}") Security/Auth
 
       .col-xs-12(ng-class="showLeftMenu() ? 'col-md-9' : 'col-md-12'")
         .view-animate-container.rtl

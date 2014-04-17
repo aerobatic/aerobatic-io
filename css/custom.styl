@@ -32,11 +32,17 @@ ul.navbar-nav
 
 .left-menu
   z-index: 1000
+  position: relative
 
 // The left column table of contents
-.well.toc
+.toc
   margin-top: 20px
   position: fixed
+  width: 200px
+
+  ul
+    padding: 5px
+    list-style-position:inside;
 
   a.active
     color: #000
@@ -46,6 +52,8 @@ ul.navbar-nav
 .view-animate-container
   min-height: 500px
   position:relative;
+  overflow-x:hidden
+
   // height:100%;
   // overflow: hidden
   // overflow-y:scroll;
