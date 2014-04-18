@@ -114,6 +114,7 @@ display:block;
 .boxFeature-2 p {font-size: 12px;}
 
 .boxContent{padding:22px;}
+
 /*** utilies classes ***/
 .mb15 {
   margin-bottom:1.5em;
@@ -196,6 +197,7 @@ h1, h2, h3, h4, h5, h6, legend {
   font-weight: 300;
   font-family: 'Open Sans', sans-serif;
 }
+
 h1 {
   font-size: 44px;
   line-height: 44px;
@@ -401,7 +403,6 @@ hr {
 @media(min-width:1200px){}
 
 /*** END MEDIA QUERIES ***/
-#flexHome h1{font}
 
 /* END TYPOGRAPHY
 ================================================== */

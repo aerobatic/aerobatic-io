@@ -9,7 +9,6 @@ define([
   'angular',
   'google-analytics',
   'aerobatic',
-  'asset!js/move',
   'angular-route',
   'angular-animate',
   'angular-bootstrap',
@@ -52,6 +51,7 @@ define([
         }
       });
 
+      //This is just a comment to force a change
       return {
         initialize: function() {
           // Initialize google analytics tracking
