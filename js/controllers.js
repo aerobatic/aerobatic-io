@@ -43,5 +43,9 @@ define(['angular'], function(angular) {
 
   ctrls.DocsCtrl.$inject = ['$scope', '$location', '$routeParams', '$sce', 'aerobatic'];
 
+  ctrls.IndexCtrl = function($scope, $document, $log) {
+  };
+  ctrls.IndexCtrl.$inject = ['$scope','$document','$log'];
+
   return ctrls;
 });
