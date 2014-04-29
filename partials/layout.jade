@@ -23,10 +23,14 @@
               a(href='#!/gallery')
                 i.icon-picture
                 | Gallery
-            li(ng-class="{current:navSelected('/about')}")
-              a(href='#!/about')
-                i.icon-info-circled
-                | About
+            //- li(ng-class="{current:navSelected('/about')}")
+            //-   a(href='/#!/about')
+            //-     i.icon-info-circled
+            //-     | About
+            li(ng-class="{current:navSelected('/contact')}")
+              a(href="#!/contact")
+                i.icon-mail-1
+                | Contact
             li(ng-class="{current:navSelected('/blog')}")
               a(href='#!/blog')
                 i.icon-bullhorn
@@ -39,19 +43,19 @@
           h3 Table of Contents
           ul
             li
-              a(href="#!/docs/introduction", ng-class="{active:isActiveToc('introduction')}") Introduction
+              a(href="/#!/docs/introduction", ng-class="{active:isActiveToc('introduction')}") Introduction
             li
-              a(href="#!/docs/getting-started", ng-class="{active:isActiveToc('getting-started')}") Getting Started
+              a(href="/#!/docs/getting-started", ng-class="{active:isActiveToc('getting-started')}") Getting Started
             li
-              a(href="#!/docs/asset-delivery", ng-class="{active:isActiveToc('asset-delivery')}") Asset Delivery
+              a(href="/#!/docs/asset-delivery", ng-class="{active:isActiveToc('asset-delivery')}") Asset Delivery
             li
-              a(href="#!/docs/backend-integration", ng-class="{active:isActiveToc('backend-integration')}") Backend Integration
+              a(href="/#!/docs/backend-integration", ng-class="{active:isActiveToc('backend-integration')}") Backend Integration
             li
-              a(href="#!/docs/seo", ng-class="{active:isActiveToc('seo')}") SEO
+              a(href="/#!/docs/seo", ng-class="{active:isActiveToc('seo')}") SEO
             li
-              a(href="#!/docs/security", ng-class="{active:isActiveToc('security')}") Security/Auth
+              a(href="/#!/docs/security", ng-class="{active:isActiveToc('security')}") Security/Auth
             //- li
-            //-   a(href="#!/docs/security", ng-class="{active:isActiveToc('security')}") Security/Auth  
+            //-   a(href="#!/docs/security", ng-class="{active:isActiveToc('security')}") Security/Auth
 
 
       .col-xs-12(ng-class="showLeftMenu() ? 'col-md-9' : 'col-md-12'")

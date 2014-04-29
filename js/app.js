@@ -26,10 +26,10 @@ define([
     'asset!partials/docs',
     'asset!partials/blog',
     'asset!partials/gallery',
-    'asset!partials/about',
+    'asset!partials/contact',
     'asset!js/controllers',
     'asset!js/aerobatic-angular'
-  ], function(layoutView, indexView, docsView, blogView, galleryView, aboutView, controllers) {
+  ], function(layoutView, indexView, docsView, blogView, galleryView, contactView, controllers) {
     var app = angular.module('aerobatic-io', ['ngRoute', 'ngAnimate', 'ui.bootstrap', 'aerobatic']);
 
     // Register each of the controllers with the app
@@ -72,8 +72,8 @@ define([
           template: docsView
         }).when('/blog', {
           template: blogView
-        }).when('/about', {
-          template: aboutView
+        }).when('/contact', {
+          template: contactView
         }).when('/gallery', {
           template: galleryView
         }).otherwise({
