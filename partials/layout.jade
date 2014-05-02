@@ -42,20 +42,8 @@
         div.toc.well
           h3 Table of Contents
           ul
-            li
-              a(href="/#!/docs/introduction", ng-class="{active:isActiveToc('introduction')}") Introduction
-            li
-              a(href="/#!/docs/getting-started", ng-class="{active:isActiveToc('getting-started')}") Getting Started
-            li
-              a(href="/#!/docs/asset-delivery", ng-class="{active:isActiveToc('asset-delivery')}") Asset Delivery
-            li
-              a(href="/#!/docs/backend-integration", ng-class="{active:isActiveToc('backend-integration')}") Backend Integration
-            li
-              a(href="/#!/docs/seo", ng-class="{active:isActiveToc('seo')}") SEO
-            li
-              a(href="/#!/docs/security", ng-class="{active:isActiveToc('security')}") Security/Auth
-            //- li
-            //-   a(href="#!/docs/security", ng-class="{active:isActiveToc('security')}") Security/Auth
+            li(ng-repeat="topic in docsTableOfContents")
+              a(ng-href="{{'#!/docs/' + topic[0]}}", ng-class="{active:isActiveToc(topic[0])}") {{topic[1]}}
 
 
       .col-xs-12(ng-class="showLeftMenu() ? 'col-md-9' : 'col-md-12'")

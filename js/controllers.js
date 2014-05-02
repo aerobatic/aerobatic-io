@@ -4,6 +4,18 @@ define(['angular'], function(angular) {
   var ctrls = {};
 
   ctrls.MainCtrl = function($scope, $location) {
+    $scope.docsTableOfContents = [
+      ['introduction', 'Introduction'],
+      ['getting-started', 'Getting Started'],
+      ['asset-delivery', 'Asset Delivery'],
+      ['developing-apps', 'Developing Apps'],
+      ['backend-integration', 'Backend Integration'],
+      ['traffic-control', 'Traffic Control'],
+      ['seo', 'SEO'],
+      ['security', 'Security/Auth'],
+      ['technical-details', 'Technical Details']
+    ];
+
     $scope.showLeftMenu = function() {
       return $location.path().substring(0, 5) == '/docs';
     };
@@ -32,16 +44,17 @@ define(['angular'], function(angular) {
 
   ctrls.MainCtrl.$inject = ['$scope', '$location'];
 
-  ctrls.DocsCtrl = function($scope, $location, $routeParams, $sce, aerobatic) {
+  ctrls.DocsCtrl = function($scope, $rootScope, $location, $routeParams, $sce, aerobatic) {
     // Get the blog content
     var page = $routeParams.page || 'introduction';
 
     aerobatic.requireAsset('content/docs/' + page).then(function(content) {
       $scope.content = $sce.trustAsHtml(content);
+      // $rootScope.$broadcast('nestedContentLoaded');
     });
   };
 
-  ctrls.DocsCtrl.$inject = ['$scope', '$location', '$routeParams', '$sce', 'aerobatic'];
+  ctrls.DocsCtrl.$inject = ['$scope', '$rootScope', '$location', '$routeParams', '$sce', 'aerobatic'];
 
   ctrls.IndexCtrl = function($scope, $document, $log) {
   };
