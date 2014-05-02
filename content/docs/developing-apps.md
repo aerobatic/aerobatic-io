@@ -2,8 +2,40 @@
 
 Aerobatic tries to keep out of your way as much as possible. The vast majority of your app code will not be specific to Aerobatic at all. The site you are looking at right now, www.aerobatic.io, is itself an Aerobatic app built with AngularJS and Bootstrap. All the sample snippets below are taken from this codebase. The entire project is a [public GitHub repo](https://github.com/aerobatic/aerobatic-io) so you are free to peruse the source or clone it and use as a starting point for your own app.
 
-### Anatomy of an Aerobatic App
-Generally speaking you can structure your code in whatever manner makes the most sense for your app. When using a framework like Angular, it's often a good idea to follow the conventions for that library. Aerobatic requires one special config file located in the root of your source directory called aerobatic.json. The JSON structure of the file follows the structure of the [require.js config](http://requirejs.org/docs/api.html#config) object along with some Aerobatic specific settings.
+<a id="requirejs"></a>
+##RequireJS
+Aerobatic strives to be unopinionated about how you build apps, however it does currently mandate the use of [RequireJS](http://requirejs.org) to asynchronously load your client assets. The technical reason for this is to enable the simulator mode (more about that below) which allows local development directly against the production site URL. With RequireJS it is possible to defer the determination of where to download assets to the browser rather than the server rendering script urls directly to the page response. Independent of Aerobatic, using an AMD loader like RequireJS provides many benefits to a single page web app, particularly as it grows in complexity. 
+
+While RequireJS is a powerful library with some advanced features, you really only need to understand a few basic constructs - the define and require functions, and a little about how configuration works. The sample apps have the boilerplate already declared, so starting from there and tweaking it for your needs is the best way to get going.
+
+The way RequireJS is declared on the page differs slightly in Aerobatic than a standalone app. In the official docs and in tutorials you will see code snippets similar to the following:
+
+```html
+<head>
+    <!-- Load the script "js/main.js" as our entry point -->
+    <script data-main="js/main" src="js/libs/require/require.js"></script>
+</head>
+```
+```javascript
+require.config({
+  paths: {
+    jquery: 'libs/jquery/jquery',
+    underscore: 'libs/underscore/underscore',
+    backbone: 'libs/backbone/backbone'
+  }
+});
+```
+
+With Aerobatic you don't actually declare the script element for require.js yourself, it is rendered by the Aerobatic server platform. If you view the source of an Aerobatic app you'll see something like this:
+```html
+<head>
+	<script src="https://aerobaticapp.com/cockpit.min.js"></script>
+</head>
+```
+The code for require.js is included as part of cockpit.min.js. Rather than a data-main attribute, the main entry point module is declared in the aerobatic.json file.
+
+## aerobatic.json
+Aerobatic requires one special config file located in the root of your source directory called aerobatic.json. The JSON structure of the file follows the structure of the [require.js config](http://requirejs.org/docs/api.html#config) object along with some Aerobatic specific settings.
 
 ```json
 {
@@ -39,6 +71,13 @@ Generally speaking you can structure your code in whatever manner makes the most
 ```
 The [shim section](http://requirejs.org/docs/api.html#config-shim) is used for script dependencies that are not natively AMD aware and use the traditional global variable approach. The [paths section](http://requirejs.org/docs/api.html#config-paths) is used to tell RequireJS where to find modules that live outside your app code. Since Aerobatic automatically sets the baseUrl to the root of your app, paths will generally only be used for loading scripts from an external server such as a CDN. In fact it is considered a best practice when building Aerobatic apps to reference your libraries from a CDN whenever possible. [cdnjs](http://www.cdnjs.com/) hosts an extensive set of JavaScript and CSS libraries backed by [Cloudflare](http://www.cloudflare.com/), a highly performant and highly available delivery network. Note that with RequireJS the .js extension is omitted from the paths.
 
+The mainModules key serves tells Aerobatic which module is the main entry point for the application. For an app that doesn't require authentication there will be just one entry point called index. Apps that require authentication will have two keys delared: _authorized_ and _pre-authorized_. 
+
+<i class='icon-book'></i>[More about app authentication](#!/docs/security?section=auth)
+
+## Anatomy of an Aerobatic App
+Generally speaking you can structure your code in whatever manner makes the most sense for your app. When using a framework like Angular, it's often a good idea to follow the conventions for that library.
+
 ### Sample Source Directory Tree
 
 ```bash
@@ -70,6 +109,7 @@ The [shim section](http://requirejs.org/docs/api.html#config-shim) is used for s
 | |--layout.jade
 |--sitemap.xml
 ```
+
 
 ### Requiring Assets
 Aerobatic makes use of a RequireJS [plugin](http://requirejs.org/docs/plugins.html) called _asset_ to asynchronously load your scripts and stylesheets onto the page. The syntax for plugins is to prefix the path to the module with the plugin name followed by an exclamation point. Here's what it looks like in code:
