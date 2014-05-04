@@ -44,17 +44,17 @@ define(['angular'], function(angular) {
 
   ctrls.MainCtrl.$inject = ['$scope', '$location'];
 
-  ctrls.DocsCtrl = function($scope, $rootScope, $location, $routeParams, $sce, aerobatic) {
+  ctrls.DocsCtrl = function($scope, $rootScope, $location, $routeParams, $sce, $aerobatic) {
     // Get the blog content
     var page = $routeParams.page || 'introduction';
 
-    aerobatic.requireAsset('content/docs/' + page).then(function(content) {
+    $aerobatic.requireAsset('content/docs/' + page).then(function(content) {
       $scope.content = $sce.trustAsHtml(content);
       // $rootScope.$broadcast('nestedContentLoaded');
     });
   };
 
-  ctrls.DocsCtrl.$inject = ['$scope', '$rootScope', '$location', '$routeParams', '$sce', 'aerobatic'];
+  ctrls.DocsCtrl.$inject = ['$scope', '$rootScope', '$location', '$routeParams', '$sce', '$aerobatic'];
 
   ctrls.IndexCtrl = function($scope, $document, $log) {
   };
