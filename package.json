@@ -1,0 +1,18 @@
+{
+  "name": "aerobatic-io",
+  "version": "0.0.0",
+  "description": "",
+  "main": "yoke sim",
+  "scripts": {
+    "test": "yoke test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@personal.bitbucket.org:aerobatic/aerobatic-io.git"
+  },
+  "author": "David Von Lehman",
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-favicons": "~0.6.4"
+  }
+}
