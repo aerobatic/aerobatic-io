@@ -1,0 +1,117 @@
+html
+  head
+    title Aerobatic - HTML5 app platform - Wings for nimble web apps
+
+    meta(charset="UTF-8")
+    meta(name="fragment", content="!")
+    meta(name="google-site-verification", content="YbKZLxUG3Ofxi-WvBgTalaMUg7azE4-5tmLya_6esRk")
+    meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1")
+
+    link(rel='apple-touch-icon-precomposed', sizes='114x114', href='/apple-touch-icon-114x114-precomposed.png')
+    link(rel='apple-touch-icon-precomposed', sizes='120x120', href='/apple-touch-icon-120x120-precomposed.png')
+    link(rel='apple-touch-icon-precomposed', sizes='144x144', href='/apple-touch-icon-144x144-precomposed.png')
+    link(rel='apple-touch-icon-precomposed', sizes='152x152', href='/apple-touch-icon-152x152-precomposed.png')
+    link(rel='apple-touch-icon-precomposed', sizes='60x60', href='/apple-touch-icon-60x60-precomposed.png')
+    link(rel='apple-touch-icon-precomposed', sizes='72x72', href='/apple-touch-icon-72x72-precomposed.png')
+    link(rel='apple-touch-icon-precomposed', sizes='76x76', href='/apple-touch-icon-76x76-precomposed.png')
+    link(rel='icon', type='image/png', sizes='64x64', href='/favicon.png')
+    meta(name='msapplication-square144x144logo', content='/windows-tile-144x144.png')
+    meta(name='msapplication-square150x150logo', content='/windows-tile-150x150.png')
+    meta(name='msapplication-square310x310logo', content='/windows-tile-310x310.png')
+    meta(name='msapplication-square70x70logo', content='/windows-tile-70x70.png')
+    style.
+      [ng-cloak]: { display: none }
+
+    link(rel='Stylesheet', href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css")
+    link(rel='Stylesheet', href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,800")
+    //- Used for code highlighting in markdown
+    link(rel='Stylesheet', href="//yandex.st/highlightjs/8.0/styles/default.min.css")
+
+    link(rel='Stylesheet', href="font/fontello-embedded.css")
+    link(rel='Stylesheet', href='dist/app.min.css')
+
+  body(ng-app='aerobatic-io')
+    #appContainer(ng-controller='MainCtrl', ng-cloak)
+      //- header
+      header#mainHeader.navbar-fixed-top(role='banner')
+        .container
+          nav.navbar.navbar-default.scrollMenu(role='navigation')
+            .navbar-header
+              button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-ex1-collapse', ng-init="navCollapsed = true", ng-click="navCollapsed = !navCollapsed")
+                span.sr-only Toggle navigation
+                span.icon-bar
+                span.icon-bar
+                span.icon-bar
+              a.navbar-brand(href='#!/index')
+                img(src='images/logo-large-beta.png', alt='Aerobatic - wings for nimble web apps')
+                {{location.path()}}
+
+            .collapse.navbar-collapse.navbar-ex1-collapse(ng-class="!navCollapsed && 'in'", ng-click="navCollapsed=true")
+              ul.nav.navbar-nav.pull-right
+                li(ng-class="{current:navSelected('/docs')}")
+                  a(href='#!/docs/introduction')
+                    i.icon-book
+                    | Docs
+                li(ng-class="{current:navSelected('/gallery')}")
+                  a(href='#!/gallery')
+                    i.icon-picture
+                    | Gallery
+                //- li(ng-class="{current:navSelected('/about')}")
+                //-   a(href='/#!/about')
+                //-     i.icon-info-circled
+                //-     | About
+                li(ng-class="{current:navSelected('/contact')}")
+                  a(href="#!/contact")
+                    i.icon-mail-1
+                    | Contact
+                li(ng-class="{current:navSelected('/blog')}")
+                  a(href='#!/blog')
+                    i.icon-bullhorn
+                    | Blog
+
+      div.clearfix(ng-class="{container:showLeftMenu()}")
+        .row
+          .col-md-3.visible-md.visible-lg.left-menu(ng-class="{hidden:!showLeftMenu()}")
+            div.toc.well
+              h3 Table of Contents
+              ul
+                li(ng-repeat="topic in docsTableOfContents")
+                  a(ng-href="{{'#!/docs/' + topic[0]}}", ng-class="{active:isActiveToc(topic[0])}") {{topic[1]}}
+
+
+          .col-xs-12(ng-class="showLeftMenu() ? 'col-md-9' : 'col-md-12'")
+            .view-animate-container.rtl
+              div.view-animate(ng-view)
+
+      section#footerRights.clearfix
+        .container
+          .row
+            .col-sm-6
+              p
+                | Copyright © 2014
+                a(href='http://www.aerobatic.io', target='blank') Aerobatic
+                | / All rights reserved.
+            .col-sm-6
+              ul.socialNetwork.pull-right
+                li
+                  a.tips(href='https://twitter.com/aerobaticapp', title='follow me on Twitter', target='_blank')
+                    i.icon-twitter.iconRounded
+
+
+    script(src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.7.1/modernizr.min.js")
+    script(src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js")
+    script(src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular-route.min.js")
+    script(src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular-animate.min.js")
+    script(src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap.min.js")
+    script(src="//www.google-analytics.com/analytics.js")
+
+    //- Release scripts
+    script(data-aero-build="release" src="dist/app.min.js")
+
+    //- Load our partial views that have been compiled to JavaScript
+    script(src="dist/partials.min.js")
+
+    div(data-aero-build="debug")
+      script(src="js/app.js")
+      script(src="js/controllers.js")
+      script(src="js/directives.js")
