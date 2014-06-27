@@ -2,13 +2,13 @@ angular.module('controllers').controller('MainCtrl', function($scope, $location)
   $scope.docsTableOfContents = [
     ['introduction', 'Introduction'],
     ['getting-started', 'Getting Started'],
-    ['asset-delivery', 'Asset Delivery'],
-    ['developing-apps', 'Developing Apps'],
+    // ['asset-delivery', 'Asset Delivery'],
+    // ['developing-apps', 'Developing Apps'],
     ['backend-integration', 'Backend Integration'],
-    ['traffic-control', 'Traffic Control'],
-    ['seo', 'SEO'],
-    ['security', 'Security/Auth'],
-    ['technical-details', 'Technical Details']
+    ['traffic-control', 'Traffic Control']
+    // ['seo', 'SEO'],
+    // ['security', 'Security/Auth'],
+    // ['technical-details', 'Technical Details']
   ];
 
   $scope.showLeftMenu = function() {
@@ -37,17 +37,24 @@ angular.module('controllers').controller('MainCtrl', function($scope, $location)
   };
 });
 
-angular.module('controllers').controller('DocsCtrl', function($scope, $routeParams, $sce, $http, aerobatic) {
+angular.module('controllers').controller('DocsCtrl', function($scope, $rootScope, $routeParams, $sce, $http, aerobatic) {
   var page = $routeParams.page || 'introduction';
 
-  // $http.get(aerobatic.versionKey + '/')
+  // Load the docs content
+  var contentUrl;
+  if (aerobatic.simulator === true)
+    contentUrl = aerobatic.simulatorUrl;
+  else if (Modernizr.cors === true)
+    contentUrl = aerobatic.cdnUrl;
+  else
+    contentUrl = '/' + aerobatic.versionKey;
 
-  // $aerobatic.requireAsset('content/docs/' + page).then(function(content) {
-  //   $scope.content = $sce.trustAsHtml(content);
-  //   // $rootScope.$broadcast('nestedContentLoaded');
-  // });
+  $http.get(contentUrl + '/dist/content/docs/' + page + '.html').then(function(content) {
+    $scope.content = $sce.trustAsHtml(content.data);
+    $rootScope.$broadcast('nestedContentLoaded');
+  });
 });
 
 angular.module('controllers').controller('IndexCtrl', function($scope, $document, $log) {
-  
+
 });

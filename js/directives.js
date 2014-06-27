@@ -25,3 +25,9 @@ angular.module('directives').directive('markdownContent', function($rootScope, $
     });
   };
 });
+
+angular.module('directives').directive('assetSrc', function(aerobatic) {
+  return function(scope, element, attrs) {
+    element.attr('src', aerobatic.cdnUrl + '/' + attrs.assetSrc);
+  };
+});

@@ -15,18 +15,23 @@
             li
               h3 Craft your app, let us handle the plumbing
         .col-lg-4.col-sm-6.hidden-xs
-          img.img-responsive(src='images/html5-logo.png', alt='html5')
+          img.img-responsive(asset-src='images/html5-logo.png', alt='html5')
 
   //-  call to action
   section.color4.slice.cta
     .ctaBox.ctaBoxFullwidth
       .container
         .row
-          .col-md-8
+          .col-md-6
             h1
               strong Get started
               span &nbsp;building your app today on the Aerobatic beta platform.
-          .col-md-4
+
+          .col-md-3
+            a.btn.btn-lg(title='', href='#!/docs/getting-started')
+              i.icon-flash
+              | Getting Started
+          .col-md-3
             a.btn.btn-lg(title='', href='https://aerobaticapp.com/auth/github', target='blank')
               i.icon-github-circled
               | Login with GitHub
@@ -54,7 +59,7 @@
             .col-xs-9
               h2 Use the libraries you love
               p
-                | Aerobatic is a platform, not a framework. Build your app with any browser technology you wish including jQuery, Bootstrap, AngularJS, Ember, D3, and whatever next best thing comes along.
+                | Aerobatic is a platform, not a framework. Build your app with any browser technology you wish including jQuery, Bootstrap, AngularJS, Ember, Backbone, and whatever next best thing comes along.
       .row
         .col-sm-6
           .row.boxFeature
@@ -71,7 +76,7 @@
             .col-xs-9
               h2 Dev friendly tools
               p
-                | The yoke command line tool cleanly integrates into a streamlined modern web dev workflow. Push a new version to production with just a few keystrokes.
+                | Grunt based workflow that integrates cleanly into a streamlined modern web dev workflow. Push a new version to production with just a few keystrokes.
       .row
         .col-sm-6
           .row.boxFeature

@@ -64,10 +64,10 @@ html
                   a(href="#!/contact")
                     i.icon-mail-1
                     | Contact
-                li(ng-class="{current:navSelected('/blog')}")
-                  a(href='#!/blog')
-                    i.icon-bullhorn
-                    | Blog
+                //- li(ng-class="{current:navSelected('/blog')}")
+                //-   a(href='#!/blog')
+                //-     i.icon-bullhorn
+                //-     | Blog
 
       div.clearfix(ng-class="{container:showLeftMenu()}")
         .row
@@ -114,4 +114,5 @@ html
     div(data-aero-build="debug")
       script(src="js/app.js")
       script(src="js/controllers.js")
+      script(src="js/services.js")
       script(src="js/directives.js")
