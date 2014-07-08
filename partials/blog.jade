@@ -1,9 +1,23 @@
 .view
   section.page.container(ng-controller="BlogCtrl")
-    .row
-      .col-md-10
-        h1.blog-title {{blogPost.title}}
-      .col-md-2
-        div.blog-date.pull-right {{ blogPost.date | date : "MMM d, yyyy"}}
+    //- Blog posts index
+    div(ng-show="indexPosts")
+      div(ng-show="indexPosts.length == 0")
+        h1.blog-title No Blog Posts
+      div(ng-show="indexPosts.length > 0")
+        h1.blog-title Blog Index
+        .row(ng-repeat="post in indexPosts")
+          .col-md-8
+            a(ng-href="{{'#!' + post.urlPath}}") {{post.title}}
+          .col-md-4
+            div.pull-right {{ post.date | date:"MMM d, yyyy"}}
 
-    div.markdown(markdown-content="content")
+    //- Blog post
+    div(ng-show="blogPost")
+      .row
+        .col-md-10
+          h1.blog-title {{blogPost.title}}
+        .col-md-2
+          div.blog-date.pull-right {{ blogPost.date | date : "MMM d, yyyy"}}
+
+      div.markdown(markdown-content="content")

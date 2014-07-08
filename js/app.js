@@ -15,9 +15,7 @@ angular.module('aerobatic-io').config(function($routeProvider, $locationProvider
 
   $routeProvider.when('/', { template: JST['partials/index']() })
     .when('/docs/:page?', { template: JST['partials/docs']() })
-    .when('/blog/:year/:month/:day/:title', { template: JST['partials/blog'](), controller: 'BlogCtrl'})
-    .when('/blog', { template: JST['partials/blog'](), controller: 'BlogCtrl'})
-    // .when('/blog', { template: JST['partials/blog']() })
+    .when('/blog/:year?/:month?/:day?/:title?', { template: JST['partials/blog'](), controller: 'BlogCtrl'})
     .when('/contact', {template: JST['partials/contact']() })
     .when('/gallery', {template: JST['partials/gallery']() })
     .otherwise({ redirectTo: '/' });

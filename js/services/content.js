@@ -54,7 +54,7 @@ angular.module('services').service('content', function($rootScope, $http, $q, $l
       // Go fetch the GitHub tree with references to our Markdown content blobs
       var apiUrl = markdownRepo + '/git/trees/master?recursive=1';
 
-      $http.get('/proxy?url=' + encodeURIComponent(apiUrl) + '&cache=1&key=markdown-content-index&ttl=300').success(function(data) {
+      $http.get('/proxy?url=' + encodeURIComponent(apiUrl) + '&cache=1&ttl=600').success(function(data) {
         var contentIndex = buildIndexFromGitTree(data.tree);
         contentIndexDeferred.resolve(contentIndex);
       }).error(function(err) {
@@ -73,8 +73,8 @@ angular.module('services').service('content', function($rootScope, $http, $q, $l
 
       var proxyUrl = '/proxy?url=' + encodeURIComponent(apiUrl);
 
-      // Set cache proxy cache parameters. Use the slugified blog title as the cache key. Cache for 1 hour.
-      proxyUrl += '&cache=1&key=' + object.urlPath + '&ttl=' + (60 * 60);
+      // Instruct the proxy to cache the content for 1 hour.
+      proxyUrl += '&cache=1&ttl=' + (60 * 60);
 
       // Specify that the API response should pass through the markdown transform
       proxyUrl += '&transform=markdown';
