@@ -1,5 +1,3 @@
-angular.module('services').value('aerobatic', window.__config__);
-
 // Create a custom angular service that encapsulates the communication with google analytics
 angular.module('services').service('analytics', function($rootScope, $location, $log, aerobatic) {
   // http://burgiblog.com/2013/07/09/google-analytics-and-requirejs/

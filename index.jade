@@ -64,20 +64,26 @@ html
                   a(href="#!/contact")
                     i.icon-mail-1
                     | Contact
-                //- li(ng-class="{current:navSelected('/blog')}")
-                //-   a(href='#!/blog')
-                //-     i.icon-bullhorn
-                //-     | Blog
+                li(ng-class="{current:navSelected('/blog')}")
+                  a(href='#!/blog')
+                    i.icon-bullhorn
+                    | Blog
 
       div.clearfix(ng-class="{container:showLeftMenu()}")
         .row
           .col-md-3.visible-md.visible-lg.left-menu(ng-class="{hidden:!showLeftMenu()}")
-            div.toc.well
+            div.toc.well(ng-show="showDocsMenu()")
               h3 Table of Contents
               ul
                 li(ng-repeat="topic in docsTableOfContents")
                   a(ng-href="{{'#!/docs/' + topic[0]}}", ng-class="{active:isActiveToc(topic[0])}") {{topic[1]}}
 
+
+            div.toc.well(ng-show="showBlogMenu()")
+              h3 Blog Posts
+              ul
+                li(ng-repeat="post in contentIndex.blogPosts")
+                  a(ng-href="{{'#!' + post.urlPath}}", ng-class="{active:isActiveToc(post.titleSlug)}") {{post.title}}
 
           .col-xs-12(ng-class="showLeftMenu() ? 'col-md-9' : 'col-md-12'")
             .view-animate-container.rtl
@@ -102,6 +108,8 @@ html
     script(src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js")
     script(src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular-route.min.js")
     script(src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular-animate.min.js")
+    script(src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js")
+    script(src="//cdnjs.cloudflare.com/ajax/libs/underscore.string/2.3.3/underscore.string.min.js")
     script(src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap.min.js")
     script(src="//www.google-analytics.com/analytics.js")
 
@@ -113,6 +121,10 @@ html
 
     div(data-aero-build="debug")
       script(src="js/app.js")
-      script(src="js/controllers.js")
-      script(src="js/services.js")
+      script(src="js/controllers/indexCtrl.js")
+      script(src="js/controllers/mainCtrl.js")
+      script(src="js/controllers/docsCtrl.js")
+      script(src="js/controllers/blogCtrl.js")
+      script(src="js/services/analytics.js")
+      script(src="js/services/content.js")
       script(src="js/directives.js")

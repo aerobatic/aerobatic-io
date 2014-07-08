@@ -1,8 +1,9 @@
-.page
-  section.page
-    h1.noSubtitle Blog
+.view
+  section.page.container(ng-controller="BlogCtrl")
+    .row
+      .col-md-10
+        h1.blog-title {{blogPost.title}}
+      .col-md-2
+        div.blog-date.pull-right {{ blogPost.date | date : "MMM d, yyyy"}}
 
-    .container
-      h2 Coming Soon
-
-  //- include footer
+    div.markdown(markdown-content="content")

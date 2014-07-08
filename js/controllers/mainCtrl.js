@@ -1,4 +1,4 @@
-angular.module('controllers').controller('MainCtrl', function($scope, $location) {
+angular.module('controllers').controller('MainCtrl', function($scope, $location, content) {
   $scope.docsTableOfContents = [
     ['introduction', 'Introduction'],
     ['getting-started', 'Getting Started'],
@@ -11,7 +11,20 @@ angular.module('controllers').controller('MainCtrl', function($scope, $location)
     // ['technical-details', 'Technical Details']
   ];
 
+  content.contentIndex().then(function(index) {
+    $scope.contentIndex = index;
+  });
+
   $scope.showLeftMenu = function() {
+    var path = $location.path().substring(0, 5);
+    return path == '/docs' || path == '/blog';
+  };
+
+  $scope.showBlogMenu = function() {
+    return $location.path().substring(0, 5) == '/blog';
+  };
+
+  $scope.showDocsMenu = function() {
     return $location.path().substring(0, 5) == '/docs';
   };
 
@@ -35,26 +48,4 @@ angular.module('controllers').controller('MainCtrl', function($scope, $location)
   $scope.navSelected = function(path) {
     return $location.path().substring(0, path.length) == path;
   };
-});
-
-angular.module('controllers').controller('DocsCtrl', function($scope, $rootScope, $routeParams, $sce, $http, aerobatic) {
-  var page = $routeParams.page || 'introduction';
-
-  // Load the docs content
-  var contentUrl;
-  if (aerobatic.simulator === true)
-    contentUrl = aerobatic.simulatorUrl;
-  else if (Modernizr.cors === true)
-    contentUrl = aerobatic.cdnUrl;
-  else
-    contentUrl = '/' + aerobatic.versionKey;
-
-  $http.get(contentUrl + '/dist/content/docs/' + page + '.html').then(function(content) {
-    $scope.content = $sce.trustAsHtml(content.data);
-    $rootScope.$broadcast('nestedContentLoaded');
-  });
-});
-
-angular.module('controllers').controller('IndexCtrl', function($scope, $document, $log) {
-
 });
