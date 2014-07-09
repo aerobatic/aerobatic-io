@@ -54,7 +54,7 @@ module.exports = function(grunt) {
     },
     cssmin: {
       minify: {
-        src: ['tmp/app.css'],
+        src: ['tmp/app.css', 'css/github-markdown.css'],
         dest: 'dist/app.min.css'
       }
     },
