@@ -29,7 +29,7 @@ html
     link(rel='Stylesheet', href="font/fontello-embedded.css")
     link(rel='Stylesheet', href='dist/app.min.css')
 
-  body(ng-app='aerobatic-io')
+  body(ng-app='aerobatic-io', snapshot-ready)
     #appContainer(ng-controller='MainCtrl', ng-cloak)
       //- header
       header#mainHeader.navbar-fixed-top(role='banner')
