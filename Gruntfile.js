@@ -112,7 +112,19 @@ module.exports = function(grunt) {
           }
         ]
       }
-    }
+    },
+
+    html_snapshots: {
+      options: {
+        input: "sitemap",
+        source: "./sitemap.xml",
+        hostname: "http://www.aerobatic.io?sim=1&user=fbdc0e77-c034-4221-a89a-fa4040c8b1e3&port=3000",
+        selector: "#doneRendering", // { "__default": "#dynamic-content", "/": "#home-content" },
+        outputDirClean: true,
+        outputDir: "/tmp/snapshots"
+      },
+      all: {}
+    },
   });
 
   // Specify the sync arg to avoid blocking the watch
@@ -120,6 +132,7 @@ module.exports = function(grunt) {
   grunt.registerTask('deploy', ['build', 'aerobatic:deploy']);
 
   grunt.registerTask('build', ['jshint', 'jade', 'stylus', 'cssmin', 'ngmin', 'uglify', 'markdown', 'clean']);
+  grunt.registerTask('snapshot', ['html_snapshots:all']);
 
   grunt.loadNpmTasks('grunt-favicons');
   grunt.loadNpmTasks('grunt-contrib-uglify');
@@ -132,4 +145,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-ngmin');
   grunt.loadNpmTasks('grunt-markdown');
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-html-snapshots');
 };
