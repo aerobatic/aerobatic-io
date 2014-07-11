@@ -160,3 +160,13 @@ h1.blog-title
   font-weight: 300
   line-height: 20px
   font-family: 'Open Sans',sans-serif
+
+// Fix for the signup and getting started buttons
+// overlapping at medium screen sizes
+@media (min-width: 1200px)
+  .ctaBox a.btn-lg
+    font-size: 22px !important
+
+@media (max-width: 1200px)
+  .ctaBox a.btn-lg
+    font-size: 16px !important
