@@ -1,4 +1,4 @@
-angular.module('controllers').controller('BlogCtrl', function($scope, $rootScope, $location, $routeParams, $log, $sce, content) {
+angular.module('controllers').controller('BlogCtrl', function($scope, $rootScope, $location, $routeParams, $log, $sce, $document, content) {
   content.contentIndex().then(function(contentIndex) {
     var routeKeys = _.keys($routeParams);
     if (routeKeys.length === 0) {
@@ -26,6 +26,9 @@ angular.module('controllers').controller('BlogCtrl', function($scope, $rootScope
       var blogPost = _.find(contentIndex.blogPosts, {urlPath: $location.path()});
       if (!blogPost)
         return $location.path('404');
+
+      // Set the title of the page
+      $document[0].title = 'Aerobatic | ' + blogPost.title;
 
       $scope.blogPost = blogPost;
       content.load(blogPost).then(function(content) {
