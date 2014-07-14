@@ -93,12 +93,17 @@ module.exports = function(grunt) {
     clean: ['tmp'],
     aerobatic: {
       deploy: {
-        src: ['index.html', 'dist/**/*.*', 'favicons/*', 'font/*', 'images/*.*']
+        src: ['index.html', 'dist/**/*.*', 'favicons/*', 'font/*', 'images/*.*', 'sitemap.xml']
       },
       sim: {
         index: 'index.html',
         port: 3000,
         livereload: true
+      },
+      snapshot: {
+        all: {
+          timeout: 2000
+        }
       }
     },
     markdown: {
@@ -113,18 +118,6 @@ module.exports = function(grunt) {
         ]
       }
     },
-
-    html_snapshots: {
-      options: {
-        input: "sitemap",
-        source: "./sitemap.xml",
-        hostname: "http://www.aerobatic.io?sim=1&user=fbdc0e77-c034-4221-a89a-fa4040c8b1e3&port=3000",
-        selector: "#doneRendering", // { "__default": "#dynamic-content", "/": "#home-content" },
-        outputDirClean: true,
-        outputDir: "/tmp/snapshots"
-      },
-      all: {}
-    },
   });
 
   // Specify the sync arg to avoid blocking the watch
@@ -132,7 +125,7 @@ module.exports = function(grunt) {
   grunt.registerTask('deploy', ['build', 'aerobatic:deploy']);
 
   grunt.registerTask('build', ['jshint', 'jade', 'stylus', 'cssmin', 'ngmin', 'uglify', 'markdown', 'clean']);
-  grunt.registerTask('snapshot', ['html_snapshots:all']);
+  grunt.registerTask('snapshot', ['aerobatic:snapshot']);
 
   grunt.loadNpmTasks('grunt-favicons');
   grunt.loadNpmTasks('grunt-contrib-uglify');
@@ -141,9 +134,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
+  // grunt.loadTasks('../grunt-aerobatic/tasks');
   grunt.loadNpmTasks('grunt-aerobatic');
   grunt.loadNpmTasks('grunt-ngmin');
   grunt.loadNpmTasks('grunt-markdown');
   grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-html-snapshots');
 };
