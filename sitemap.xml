@@ -6,7 +6,7 @@
       <priority>0.8</priority>
    </url>
    <url>
-      <loc>http://www.aerobatic.io/#!/gallery</loc>
+      <loc>http://www.aerobatic.io/#!/blog/2014/07/08/build-a-publishing-platform-with-angularjs-github-and-markdown</loc>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
    </url>
@@ -16,7 +16,7 @@
       <priority>0.8</priority>
    </url>
    <url>
-      <loc>http://www.aerobatic.io/#!/blog</loc>
+      <loc>http://www.aerobatic.io/#!/gallery</loc>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
    </url>
@@ -30,17 +30,17 @@
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
    </url>
-   <url>
+   <!-- <url>
       <loc>http://www.aerobatic.io/#!/docs/asset-delivery</loc>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
-   </url>
+   </url> -->
    <url>
       <loc>http://www.aerobatic.io/#!/docs/backend-integration</loc>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
    </url>
-   <url>
+   <!-- <url>
       <loc>http://www.aerobatic.io/#!/docs/performance</loc>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
@@ -49,5 +49,5 @@
       <loc>http://www.aerobatic.io/#!/docs/security</loc>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
-   </url>
+   </url> -->
 </urlset>
