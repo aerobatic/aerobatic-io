@@ -17,11 +17,6 @@ angular.module('directives').directive('markdownContent', function($rootScope, $
           link.attr('target', "external");
         }
       });
-
-      // for (link in element.find('a[href]')) {
-      //   if (/^http(s)?:\/\//.testlink.attr('href'))
-      //     link.addClass('external');
-      // }
     });
   };
 });
@@ -29,15 +24,5 @@ angular.module('directives').directive('markdownContent', function($rootScope, $
 angular.module('directives').directive('assetSrc', function(aerobatic) {
   return function(scope, element, attrs) {
     element.attr('src', aerobatic.cdnUrl + '/' + attrs.assetSrc);
-  };
-});
-
-// Simple directive that appends a marker div to the body of the document
-// after a configured timeout period.
-angular.module('directives').directive('snapshotReady', function($document, $timeout) {
-  return function(scope, element, attrs) {
-    $timeout(function () {
-      $document.find("body").append('<div id="snapshotReady"/>');
-    }, 3000);
   };
 });

@@ -29,7 +29,7 @@ html
     link(rel='Stylesheet', href="font/fontello-embedded.css")
     link(rel='Stylesheet', href='dist/app.min.css')
 
-  body(ng-app='aerobatic-io', snapshot-ready)
+  body(ng-app='aerobatic-io')
     #appContainer(ng-controller='MainCtrl', ng-cloak)
       //- header
       header#mainHeader.navbar-fixed-top(role='banner')
@@ -73,16 +73,15 @@ html
           .col-md-3.visible-md.visible-lg.left-menu(ng-class="{hidden:!showLeftMenu()}")
             div.toc.well(ng-show="showDocsMenu()")
               h3 Table of Contents
-              ul
-                li(ng-repeat="topic in docsTableOfContents")
-                  a(ng-href="{{'#!/docs/' + topic[0]}}", ng-class="{active:isActiveToc(topic[0])}") {{topic[1]}}
-
+              ul(ng-cloak)
+                li(ng-repeat="article in contentIndex.docArticles")
+                  a(ng-href="{{'#!' + article.urlPath}}", ng-class="{active:isActiveToc(article)}") {{article.title}}
 
             div.toc.well(ng-show="showBlogMenu()")
               h3 Blog Posts
-              ul
+              ul(ng-cloak)
                 li(ng-repeat="post in contentIndex.blogPosts")
-                  a(ng-href="{{'#!' + post.urlPath}}", ng-class="{active:isActiveToc(post.titleSlug)}") {{post.title}}
+                  a(ng-href="{{'#!' + post.urlPath}}", ng-class="{active:isActiveToc(post)}") {{post.title}}
 
           .col-xs-12(ng-class="showLeftMenu() ? 'col-md-9' : 'col-md-12'")
             .view-animate-container.rtl
@@ -103,13 +102,10 @@ html
                     i.icon-twitter.iconRounded
 
 
-    script(src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.7.1/modernizr.min.js")
     script(src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js")
     script(src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular-route.min.js")
     script(src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular-animate.min.js")
-    script(src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js")
-    script(src="//cdnjs.cloudflare.com/ajax/libs/underscore.string/2.3.3/underscore.string.min.js")
-    script(src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap.min.js")
+    script(src="dist/components.min.js")
     script(src="//www.google-analytics.com/analytics.js")
 
     //- Release scripts

@@ -1,19 +1,21 @@
-.page.clearfix(ng-controller="IndexCtrl")
+.page.clearfix.home(ng-controller="IndexCtrl")
   //- Hero banner
   section#home
     .container
       .row
         .col-lg-8.col-sm-6
-          h1 Wings for modern web apps.
+          h1 Welcome to the cloud built for front-end devs
           ul
             li
               h3 Build feature-rich HTML 5 single page apps in the cloud
             li
-              h3 Low friction developer experience
+              h3 Enhanced integration, performance, and security over static apps
             li
-              h3 Instant command line deployment
+              h3 Built-in asset delivery optimization
             li
-              h3 Craft your app, let us handle the plumbing
+              h3 Modern Grunt based development workflow
+            li
+              h3 Craft your app, let us handle the server plumbing
         .col-lg-4.col-sm-6.hidden-xs
           img.img-responsive(asset-src='images/html5-logo.png', alt='html5')
 
@@ -36,12 +38,33 @@
               i.icon-github-circled
               | Login with GitHub
 
+
+  section#services.slice.color1
+    .container
+      .row
+        .col-xs-12
+          h1.center
+          h2.subTitle Complements the modern web dev toolbelt
+      .row
+        .col-xs-2
+          img.img-responsive(asset-src="images/grunt-logo.png", alt="Grunt")
+        .col-xs-2
+          img.img-responsive(asset-src="images/angular-logo.png", alt="AngularJS")
+        .col-xs-2
+          img.img-responsive(asset-src="images/emberjs-logo.png", alt="EmberJS")
+        .col-xs-2
+          img.img-responsive(asset-src="images/bower-logo.png", alt="Bower")
+        .col-xs-2
+          img.img-responsive(asset-src="images/backbone-logo.png", alt="Backbone")
+        .col-xs-2
+          img.img-responsive(asset-src="images/yeoman-logo.png", alt="Yeoman")
+
   //-  features
   section#services.slice.color1
     .container
       .row
         .col-xs-12
-          h1 Features
+          h1.center Features
           h2.subTitle Smart hosting for cutting edge web apps
       .row
         .col-sm-6
@@ -59,7 +82,7 @@
             .col-xs-9
               h2 Use the libraries you love
               p
-                | Aerobatic is a platform, not a framework. Build your app with any browser technology you wish including jQuery, Bootstrap, AngularJS, Ember, Backbone, and whatever next best thing comes along.
+                | Aerobatic is a platform, not a framework. Build your app with any browser technology you wish including AngularJS, Ember, Bootstrap, Backbone, and whatever next best thing comes along.
       .row
         .col-sm-6
           .row.boxFeature
@@ -76,7 +99,7 @@
             .col-xs-9
               h2 Dev friendly tools
               p
-                | Grunt based workflow that integrates cleanly into a streamlined modern web dev workflow. Push a new version to production with just a few keystrokes.
+                | Grunt plugin that integrates cleanly into a streamlined modern web dev workflow. Deploy a new version to production with just a few keystrokes.
       .row
         .col-sm-6
           .row.boxFeature
@@ -102,7 +125,7 @@
             .col-xs-9
               h2 Integrate with any backend
               p
-                | Invoke web APIs directly from the browser or use Aerobatic's intelligent service proxy to securely store and manage your access keys.
+                | Invoke web APIs directly from the browser or use Aerobatic's intelligent service proxy to securely manage your access keys and cache API responses.
         .col-sm-6
           .row.boxFeature
             .col-xs-3

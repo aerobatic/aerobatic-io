@@ -14,14 +14,12 @@ angular.module('aerobatic-io').config(function($routeProvider, $locationProvider
   $locationProvider.hashPrefix('!');
 
   $routeProvider.when('/', { template: JST['partials/index']() })
-    .when('/docs/:page?', { template: JST['partials/docs']() })
+    .when('/docs/:article?', { template: JST['partials/docs'](), controller: 'DocsCtrl' })
     .when('/blog/:year?/:month?/:day?/:title?', { template: JST['partials/blog'](), controller: 'BlogCtrl'})
     .when('/contact', {template: JST['partials/contact']() })
     .when('/gallery', {template: JST['partials/gallery']() })
     .otherwise({ redirectTo: '/' });
 });
-
-
 
 angular.module('aerobatic-io').run(function ($log, $rootScope, $http, analytics, content) {
   $log.info("Angular app aerobatic-io run event");

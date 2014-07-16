@@ -13,7 +13,8 @@ angular.module('services').service('content', function($rootScope, $http, $q, $l
 
   function buildIndexFromGitTree(tree) {
     var index = {
-      blogPosts: []
+      blogPosts: [],
+      docArticles: []
     };
 
     _.each(tree, function(node) {
@@ -39,11 +40,27 @@ angular.module('services').service('content', function($rootScope, $http, $q, $l
             urlPath: '/' + path.slice(0, 4).concat(titleSlug).join('/')
           });
         }
+        // path is in the form docs/01-introduction.md
+        else if (path[0] === 'docs') {
+          var titleParts = path[1].split('_');
+          var articleTitle = _.strLeftBack(titleParts[1], '.');
+          var slug = _.slugify(articleTitle);
+
+          index.docArticles.push({
+            title: articleTitle,
+            slug: slug,
+            sequence: titleParts[0],
+            gitPath: node.path,
+            urlPath: '/docs/' + slug
+          });
+        }
       }
     });
 
-    // Sort the blogPosts in reverse chronological order
+    // Sort the blogPosts in reverse chronological order and doc articles
+    // by the sequence prefix, i.e. 01, 02, etc.
     index.blogPosts = _.sortBy(index.blogPosts, 'date').reverse();
+    index.docArticles = _.sortBy(index.docArticles, 'sequence');
     return index;
   }
 

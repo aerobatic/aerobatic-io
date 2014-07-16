@@ -1,17 +1,21 @@
-angular.module('controllers').controller('DocsCtrl', function($scope, $rootScope, $routeParams, $sce, $http, aerobatic) {
-  var page = $routeParams.page || 'introduction';
+angular.module('controllers').controller('DocsCtrl', function($scope, $rootScope, $location, $routeParams, $document, $sce, aerobatic, content) {
+  content.contentIndex().then(function(index) {
+    if (!$routeParams.article) {
+      // If no article specified, redirect to the first one.
+      return $location.path(index.docArticles[0].urlPath);
+    }
 
-  // Load the docs content
-  var contentUrl;
-  if (aerobatic.simulator === true)
-    contentUrl = aerobatic.simulatorUrl;
-  else if (Modernizr.cors === true)
-    contentUrl = aerobatic.cdnUrl;
-  else
-    contentUrl = '/' + aerobatic.versionKey;
+    var article = _.find(index.docArticles, {'slug': $routeParams.article});
+    if (!article)
+      return $location.path('404');
 
-  $http.get(contentUrl + '/dist/content/docs/' + page + '.html').then(function(content) {
-    $scope.content = $sce.trustAsHtml(content.data);
-    $rootScope.$broadcast('nestedContentLoaded');
+    // Set the title of the page
+    $document[0].title = 'Aerobatic Docs | ' + article.title;
+
+    $scope.docArticle = article;
+    content.load(article).then(function(content) {
+      $scope.content = $sce.trustAsHtml(content);
+      $rootScope.$broadcast('nestedContentLoaded');
+    });
   });
 });

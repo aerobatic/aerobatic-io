@@ -20,6 +20,12 @@ a::-moz-focus-inner
 ::-moz-focus-inner
   border:0
 
+h1
+  text-align: left
+  text-transform: normal
+  position: relative
+  letter-spacing: inherit
+
 a.navbar-brand
   padding-top: 10px
 
@@ -109,6 +115,9 @@ ul.navbar-nav
 section.page
   padding-top: 20px
 
+.center
+  text-align: center
+
 // Mobile screen style overrides
 @media (max-width: 764px)
   body
@@ -146,20 +155,24 @@ section.page
     margin-left: 2px
     font-size: .7em
 
-h1.blog-title
-  text-decoration: none
-  text-transform: none
-  text-align: left
-  font-size: 30px
-  line-height: 35px
-  font-weight: 400
-  font-style: normal
+.page.content
+  h1
+    text-decoration: none
+    text-transform: none
+    text-align: left
+    font-size: 30px
+    line-height: 35px
+    font-weight: 400
+    font-style: normal
 
 .blog-date
   font-size: 20px
   font-weight: 300
   line-height: 20px
   font-family: 'Open Sans',sans-serif
+
+section.slice
+  padding: 33px !important
 
 // Fix for the signup and getting started buttons
 // overlapping at medium screen sizes

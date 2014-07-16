@@ -1,3 +1,5 @@
 .view
-  section.page.container(ng-controller="DocsCtrl")
-    div.markdown(markdown-content="content")
+  section.page.container.content(ng-controller="DocsCtrl", ng-cloak)
+    div(ng-show="docArticle")
+      h1 {{docArticle.title}}
+      div.markdown(markdown-content="content")

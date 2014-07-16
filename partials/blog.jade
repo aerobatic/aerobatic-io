@@ -1,11 +1,11 @@
 .view
-  section.page.container(ng-controller="BlogCtrl")
+  section.page.container.content(ng-controller="BlogCtrl", ng-cloak)
     //- Blog posts index
     div(ng-show="indexPosts")
       div(ng-show="indexPosts.length == 0")
-        h1.blog-title No Blog Posts
+        h1 No Blog Posts
       div(ng-show="indexPosts.length > 0")
-        h1.blog-title Blog Index
+        h1 Blog Index
         .row(ng-repeat="post in indexPosts")
           .col-md-8
             a(ng-href="{{'#!' + post.urlPath}}") {{post.title}}
@@ -16,7 +16,7 @@
     div(ng-show="blogPost")
       .row
         .col-md-10
-          h1.blog-title {{blogPost.title}}
+          h1 {{blogPost.title}}
         .col-md-2
           div.blog-date.pull-right {{ blogPost.date | date : "MMM d, yyyy"}}
 
