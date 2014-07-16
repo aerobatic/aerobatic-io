@@ -1,0 +1,27 @@
+{
+  "name": "aerobatic-io",
+  "version": "0.0.0",
+  "homepage": "http://www.aerobatic.io",
+  "authors": [
+    "David Von Lehman <david@aerobatic.io>"
+  ],
+  "main": "index.html",
+  "keywords": [
+    "html5",
+    "cloud"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "lodash": "~2.4.1",
+    "underscore.string": "~2.3.3",
+    "angular-ui-bootstrap-bower": "~0.11.0"
+  }
+}

@@ -64,6 +64,16 @@ module.exports = function(grunt) {
         dest: 'tmp/build.js'
       }
     },
+    concat: {
+      libs: {
+        src: [
+          'bower_components/lodash/dist/lodash.min.js',
+          'bower_components/underscore.string/dist/underscore.string.min.js',
+          'bower_components/angular-ui-bootstrap-bower/ui-bootstrap.min.js'
+        ],
+        dest: 'dist/components.min.js',
+      }
+    },
     watch: {
       options: {
         spawn: true,
@@ -104,7 +114,8 @@ module.exports = function(grunt) {
         all: {
           timeout: 2000
         }
-      }
+      },
+      cache: {}
     },
     markdown: {
       all: {
@@ -124,7 +135,7 @@ module.exports = function(grunt) {
   grunt.registerTask('sim', ['build', 'aerobatic:sim:sync', 'watch']);
   grunt.registerTask('deploy', ['build', 'aerobatic:deploy']);
 
-  grunt.registerTask('build', ['jshint', 'jade', 'stylus', 'cssmin', 'ngmin', 'uglify', 'markdown', 'clean']);
+  grunt.registerTask('build', ['jshint', 'jade', 'stylus', 'cssmin', 'ngmin', 'uglify', 'concat', 'markdown', 'clean']);
   grunt.registerTask('snapshot', ['aerobatic:snapshot']);
 
   grunt.loadNpmTasks('grunt-favicons');
@@ -134,9 +145,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
-  // grunt.loadTasks('../grunt-aerobatic/tasks');
-  grunt.loadNpmTasks('grunt-aerobatic');
+  grunt.loadTasks('../grunt-aerobatic/tasks');
+  // grunt.loadNpmTasks('grunt-aerobatic');
   grunt.loadNpmTasks('grunt-ngmin');
   grunt.loadNpmTasks('grunt-markdown');
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-concat');
 };
