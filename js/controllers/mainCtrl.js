@@ -1,6 +1,9 @@
 angular.module('controllers').controller('MainCtrl', function($scope, $location, content) {
   content.contentIndex().then(function(index) {
     $scope.contentIndex = index;
+
+    if (index.blogPosts.length > 0)
+      $scope.mostRecentBlogPost = index.blogPosts[0].urlPath;
   });
 
   $scope.showLeftMenu = function() {

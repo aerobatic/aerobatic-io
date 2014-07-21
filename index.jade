@@ -1,6 +1,6 @@
 html
   head
-    title Aerobatic - HTML5 app platform - Wings for nimble web apps
+    title Aerobatic - The Cloud for Front-End Developers
 
     meta(charset="UTF-8")
     meta(name="fragment", content="!")
@@ -42,7 +42,7 @@ html
                 span.icon-bar
                 span.icon-bar
               a.navbar-brand(href='#!/index')
-                img(src='images/logo-large-beta.png', alt='Aerobatic - wings for nimble web apps')
+                img(src='images/logo-large-beta.png', alt='Aerobatic')
                 {{location.path()}}
 
             .collapse.navbar-collapse.navbar-ex1-collapse(ng-class="!navCollapsed && 'in'", ng-click="navCollapsed=true")
@@ -63,8 +63,8 @@ html
                   a(href="#!/contact")
                     i.icon-mail-1
                     | Contact
-                li(ng-class="{current:navSelected('/blog')}")
-                  a(href='#!/blog')
+                li(ng-show="mostRecentBlogPost", ng-class="{current:navSelected('/blog')}")
+                  a(ng-href='#!{{mostRecentBlogPost}}')
                     i.icon-bullhorn
                     | Blog
 

@@ -28,7 +28,7 @@ angular.module('controllers').controller('BlogCtrl', function($scope, $rootScope
         return $location.path('404');
 
       // Set the title of the page
-      $document[0].title = 'Aerobatic | ' + blogPost.title;
+      $document[0].title = blogPost.title + ' | Aerobatic';
 
       $scope.blogPost = blogPost;
       content.load(blogPost).then(function(content) {

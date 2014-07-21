@@ -11,6 +11,11 @@
       <priority>0.8</priority>
    </url>
    <url>
+      <loc>http://www.aerobatic.io/#!/blog/2014/07/19/securing-an-html5-salesforce-connected-app</loc>
+      <changefreq>weekly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
       <loc>http://www.aerobatic.io/#!/contact</loc>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
@@ -30,24 +35,9 @@
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
    </url>
-   <!-- <url>
-      <loc>http://www.aerobatic.io/#!/docs/asset-delivery</loc>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-   </url> -->
    <url>
       <loc>http://www.aerobatic.io/#!/docs/backend-integration</loc>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
    </url>
-   <!-- <url>
-      <loc>http://www.aerobatic.io/#!/docs/performance</loc>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-   </url>
-   <url>
-      <loc>http://www.aerobatic.io/#!/docs/security</loc>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-   </url> -->
 </urlset>
