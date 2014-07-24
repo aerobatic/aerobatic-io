@@ -7,6 +7,7 @@ body
   overflow-y: scroll
   width: 100%
   height: 100%
+  color: #3B3333
 
 // Get rid of annoying Firefox link borders
 a, a:hover, a:active
@@ -183,3 +184,33 @@ section.slice
 @media (max-width: 1200px)
   .ctaBox a.btn-lg
     font-size: 16px !important
+
+
+// Blog share buttons
+button.blog-share
+  width: 50px
+  height: 40px
+  color: #FFF
+  padding: 0
+  font-size: 20px
+
+  i
+    margin-right: 0;
+
+button.blog-share:hover
+  color: #FFF
+
+button.blog-share.twitter
+  background-color: #4099FF
+
+button.blog-share.google
+  background-color: #D34836
+
+button.blog-share.linkedin
+  background-color: #03659A
+
+button.blog-share.reddit
+  background-color: #99BEEB
+
+button.blog-share.hackernews
+  background-color: #ff6600

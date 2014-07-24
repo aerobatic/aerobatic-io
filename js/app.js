@@ -1,6 +1,11 @@
 // Mixin underscore.string with lodash
 _.mixin(_.str.exports());
 
+// Use mustache style delimiters for the _.template function
+_.templateSettings = {
+  interpolate : /\{\{(.+?)\}\}/g
+};
+
 angular.module('services', []);
 angular.module('controllers', ['services']);
 angular.module('directives', ['services']);

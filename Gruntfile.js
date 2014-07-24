@@ -103,7 +103,7 @@ module.exports = function(grunt) {
     clean: ['tmp'],
     aerobatic: {
       deploy: {
-        src: ['index.html', 'dist/**/*.*', 'favicons/*', 'font/*', 'images/*.*', 'sitemap.xml']
+        src: ['index.html', 'dist/**/*.*', 'favicons/*', 'font/*', 'images/*.*', 'sitemap.xml', 'robots.txt']
       },
       sim: {
         index: 'index.html',
@@ -115,7 +115,9 @@ module.exports = function(grunt) {
           timeout: 2000
         }
       },
-      cache: {}
+      cache: {
+        keys: {}
+      }
     },
     markdown: {
       all: {

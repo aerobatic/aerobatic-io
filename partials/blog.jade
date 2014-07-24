@@ -16,8 +16,25 @@
     div(ng-show="blogPost")
       .row
         .col-md-10
-          h1 {{blogPost.title}}
+          h1.title#blogTitle {{blogPost.title}}
         .col-md-2
           div.blog-date.pull-right {{ blogPost.date | date : "MMM d, yyyy"}}
 
-      div.markdown(markdown-content="content")
+      div.markdown#blogContent(markdown-content="content")
+      .row.well(ng-show="content")
+        .col-md-7
+          h3 Author
+          p(blog-author)
+        .col-md-5
+          h3 Share It
+          div
+            button.btn.blog-share.linkedin(share-network='linkedin', title='Shared on LinkedIn')
+              i.icon-linkedin
+            button.btn.blog-share.google(share-network='google', title="Share on Google Plus")
+              i.icon-gplus
+            button.btn.blog-share.twitter(share-network='twitter', title="Share on Twitter")
+              i.icon-twitter
+            button.btn.blog-share.reddit(share-network="reddit", title="Share on Reddit")
+              i.icon-reddit
+            button.btn.blog-share.hackernews(share-network="hackernews", title="Submit to Hacker News")
+              i.icon-hackernews
