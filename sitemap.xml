@@ -16,6 +16,11 @@
       <priority>0.8</priority>
    </url>
    <url>
+      <loc>http://www.aerobatic.io/#!/blog/2014/07/23/do-it-yourself-social-sharing-buttons</loc>
+      <changefreq>weekly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
       <loc>http://www.aerobatic.io/#!/contact</loc>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
