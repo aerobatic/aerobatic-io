@@ -6,9 +6,12 @@ angular.module('services').service('analytics', function($rootScope, $location, 
     $log.info("Page view changed to " + $location.path());
 
     if (aerobatic.simulator !== true && _.isFunction(ga)) {
-      ga('send', 'pageview', {
-        page: $location.path()
-      });
+      try {
+        ga('send', 'pageview', {
+          page: $location.path()
+        });
+      }
+      catch (e){}
     }
   });
 
@@ -16,8 +19,12 @@ angular.module('services').service('analytics', function($rootScope, $location, 
   return {
     initialize: function() {
       // Initialize google analytics tracking
-      if (aerobatic.simulator !== true && _.isFunction(ga))
-        ga('create', aerobatic.settings.GOOGLE_ANALYTICS_TRACK_CODE, {});
+      if (aerobatic.simulator !== true && _.isFunction(ga)) {
+        try {
+          ga('create', aerobatic.settings.GOOGLE_ANALYTICS_TRACK_CODE, {});
+        }
+        catch (e){}
+      }
     }
   };
 });
