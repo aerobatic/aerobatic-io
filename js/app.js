@@ -16,7 +16,8 @@ angular.module('services').value('aerobatic', window.__config__);
 angular.module('aerobatic-io').config(function($routeProvider, $locationProvider) {
   // Use the bang prefix for Google ajax crawlability
   // https://developers.google.com/webmasters/ajax-crawling/docs/specification?csw=1
-  $locationProvider.hashPrefix('!');
+  $locationProvider.html5Mode(true);
+  // $locationProvider.hashPrefix('!');
 
   $routeProvider.when('/', { template: JST['partials/index']() })
     .when('/docs/:article?', { template: JST['partials/docs'](), controller: 'DocsCtrl' })

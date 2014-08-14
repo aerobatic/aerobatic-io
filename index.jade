@@ -7,6 +7,12 @@ html
     meta(name="google-site-verification", content="YbKZLxUG3Ofxi-WvBgTalaMUg7azE4-5tmLya_6esRk")
     meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1")
 
+    //- Redirect the old hashbang style URLs to the new pushState format
+    script.
+      if (/^#\!/.test(document.location.hash)) {
+        document.location = document.location.protocol + '//' + document.location.host + document.location.hash.substr(2);
+      }
+
     link(rel='apple-touch-icon-precomposed', sizes='114x114', href='favicons/apple-touch-icon-114x114-precomposed.png')
     link(rel='apple-touch-icon-precomposed', sizes='120x120', href='favicons/apple-touch-icon-120x120-precomposed.png')
     link(rel='apple-touch-icon-precomposed', sizes='144x144', href='favicons/apple-touch-icon-144x144-precomposed.png')
@@ -41,30 +47,30 @@ html
                 span.icon-bar
                 span.icon-bar
                 span.icon-bar
-              a.navbar-brand(href='#!/index')
+              a.navbar-brand(href='/')
                 img(src='images/logo-large-beta.png', alt='Aerobatic')
                 {{location.path()}}
 
             .collapse.navbar-collapse.navbar-ex1-collapse(ng-class="!navCollapsed && 'in'", ng-click="navCollapsed=true")
               ul.nav.navbar-nav.pull-right
                 li(ng-class="{current:navSelected('/docs')}")
-                  a(href='#!/docs/introduction')
+                  a(href='/docs/introduction')
                     i.icon-book
                     | Docs
                 li(ng-class="{current:navSelected('/gallery')}")
-                  a(href='#!/gallery')
+                  a(href='/gallery')
                     i.icon-picture
                     | Gallery
                 //- li(ng-class="{current:navSelected('/about')}")
-                //-   a(href='/#!/about')
+                //-   a(href='/about')
                 //-     i.icon-info-circled
                 //-     | About
                 li(ng-class="{current:navSelected('/contact')}")
-                  a(href="#!/contact")
+                  a(href="/contact")
                     i.icon-mail-1
                     | Contact
                 li(ng-show="mostRecentBlogPost", ng-class="{current:navSelected('/blog')}")
-                  a(ng-href='#!{{mostRecentBlogPost}}')
+                  a(ng-href='{{mostRecentBlogPost}}')
                     i.icon-bullhorn
                     | Blog
 
@@ -75,13 +81,13 @@ html
               h3 Table of Contents
               ul(ng-cloak)
                 li(ng-repeat="article in contentIndex.docArticles")
-                  a(ng-href="{{'#!' + article.urlPath}}", ng-class="{active:isActiveToc(article)}") {{article.title}}
+                  a(ng-href="{{article.urlPath}}", ng-class="{active:isActiveToc(article)}") {{article.title}}
 
             div.toc.well(ng-show="showBlogMenu()")
               h3 Blog Posts
               ul(ng-cloak)
                 li(ng-repeat="post in contentIndex.blogPosts")
-                  a(ng-href="{{'#!' + post.urlPath}}", ng-class="{active:isActiveToc(post)}") {{post.title}}
+                  a(ng-href="{{post.urlPath}}", ng-class="{active:isActiveToc(post)}") {{post.title}}
 
           .col-xs-12(ng-class="showLeftMenu() ? 'col-md-9' : 'col-md-12'")
             .view-animate-container.rtl
