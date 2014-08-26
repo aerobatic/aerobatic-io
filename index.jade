@@ -57,6 +57,12 @@ html
                   a(href='/docs/introduction')
                     i.icon-book
                     | Docs
+
+                li(ng-class="{current:navSelected('/pricing')}")
+                  a(href='/pricing')
+                    i.icon-table
+                    | Pricing
+
                 li(ng-class="{current:navSelected('/gallery')}")
                   a(href='/gallery')
                     i.icon-picture
