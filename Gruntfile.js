@@ -147,8 +147,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
-  grunt.loadTasks('../grunt-aerobatic/tasks');
-  // grunt.loadNpmTasks('grunt-aerobatic');
+  // grunt.loadTasks('../grunt-aerobatic/tasks');
+  grunt.loadNpmTasks('grunt-aerobatic');
   grunt.loadNpmTasks('grunt-ngmin');
   grunt.loadNpmTasks('grunt-markdown');
   grunt.loadNpmTasks('grunt-contrib-jshint');
