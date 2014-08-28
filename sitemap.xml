@@ -21,6 +21,11 @@
       <priority>0.8</priority>
    </url>
    <url>
+      <loc>http://www.aerobatic.io/blog/2014/08/27/aerobatic-starter-templates</loc>
+      <changefreq>weekly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
       <loc>http://www.aerobatic.io/contact</loc>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
