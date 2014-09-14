@@ -22,6 +22,7 @@
   "dependencies": {
     "lodash": "~2.4.1",
     "underscore.string": "~2.3.3",
-    "angular-ui-bootstrap-bower": "~0.11.0"
+    "angular-ui-bootstrap-bower": "~0.11.0",
+    "angular-scroll": "~0.6.2"
   }
 }

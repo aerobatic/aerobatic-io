@@ -69,7 +69,8 @@ module.exports = function(grunt) {
         src: [
           'bower_components/lodash/dist/lodash.min.js',
           'bower_components/underscore.string/dist/underscore.string.min.js',
-          'bower_components/angular-ui-bootstrap-bower/ui-bootstrap.min.js'
+          'bower_components/angular-ui-bootstrap-bower/ui-bootstrap.min.js',
+          'bower_components/angular-scroll/angular-scroll.min.js'
         ],
         dest: 'dist/components.min.js',
       }
