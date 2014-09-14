@@ -48,7 +48,7 @@ html
                 span.icon-bar
                 span.icon-bar
               a.navbar-brand(href='/')
-                img(src='images/logo-large-beta.png', alt='Aerobatic')
+                img(src='images/logo-small.png', alt='Aerobatic')
                 {{location.path()}}
 
             .collapse.navbar-collapse.navbar-ex1-collapse(ng-class="!navCollapsed && 'in'", ng-click="navCollapsed=true")
@@ -58,10 +58,10 @@ html
                     i.icon-book
                     | Docs
 
-                li(ng-class="{current:navSelected('/pricing')}")
-                  a(href='/pricing')
-                    i.icon-table
-                    | Pricing
+                //- li(ng-class="{current:navSelected('/pricing')}")
+                //-   a(href='/pricing')
+                //-     i.icon-table
+                //-     | Pricing
 
                 li(ng-class="{current:navSelected('/gallery')}")
                   a(href='/gallery')
@@ -104,9 +104,9 @@ html
           .row
             .col-sm-6
               p
-                | Copyright © 2014
-                a(href='http://www.aerobatic.io', target='blank') Aerobatic
-                | / All rights reserved.
+                | Copyright © 2014&nbsp;&nbsp;
+                a(href='http://www.aerobatic.io') Aerobatic LLC
+                | &nbsp;All rights reserved.
             .col-sm-6
               ul.socialNetwork.pull-right
                 li

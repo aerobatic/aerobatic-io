@@ -2,41 +2,33 @@
   //- Hero banner
   section#home
     .container
-      .row
-        .col-lg-8.col-sm-6
-          h1 Welcome to the cloud built for front-end devs
-          ul
-            li
-              h3 Build feature-rich HTML 5 single page apps in the cloud
-            li
-              h3 Enhanced integration, performance, and security over static apps
-            li
-              h3 Built-in asset delivery optimization
-            li
-              h3 Modern Grunt based development workflow
-            li
-              h3 Craft your app, let us handle the server plumbing
-        .col-lg-4.col-sm-6.hidden-xs
-          img.img-responsive(asset-src='images/html5-logo.png', alt='html5')
+      .row.center
+        h1 Single page app hosting, built for front-end devs
+        h2 The <i>best</i> place to deploy AngularJS, Ember, and Backbone apps. <a href="#features" offset='150' class='learn-more' du-smooth-scroll>Learn more</a>.
 
   //-  call to action
-  section.color4.slice.cta
+  section.color4.cta
     .ctaBox.ctaBoxFullwidth
       .container
         .row
-          .col-md-6
+          .col-lg-6.col-md-12
             h1
-              strong Get started
-              span &nbsp;building your app today on the Aerobatic beta platform.
+              strong Launching Fall 2014
+              span &nbsp;Enter your email to be among the first to find out.
 
-          .col-md-3
-            a.btn.btn-lg(title='', href='/docs/getting-started')
-              i.icon-flash
-              | Getting Started
-          .col-md-3
-            a.btn.btn-lg(title='', href='https://portal.aerobaticapp.com/auth', target='blank')
-              i.icon-github-circled
-              | Login with GitHub
+          .col-lg-6.col-md-12.center.launch-signup
+            form.form-inline
+              input.form-control.input-lg(type="text", placeholder="Email")
+              button.btn(type="submit") Submit
+
+          //- .col-md-3
+          //-   a.btn.btn-lg(title='', href='/docs/getting-started')
+          //-     i.icon-flash
+          //-     | Getting Started
+          //- .col-md-3
+          //-   a.btn.btn-lg(title='', href='https://portal.aerobaticapp.com/auth', target='blank')
+          //-     i.icon-github-circled
+          //-     | Login with GitHub
 
 
   section#services.slice.color1
@@ -61,6 +53,7 @@
           img.img-responsive(asset-src="images/yeoman-logo.png", alt="Yeoman")
 
   //-  features
+  a#features(du-smooth-scroll)
   section#services.slice.color1
     .container
       .row
@@ -73,17 +66,17 @@
             .col-xs-3
               i.icon-cloud-flash.iconBig
             .col-xs-9
-              h2 Highly optimized asset delivery
+              h2 Automatic CDN Deployment
               p
-                | Aerobatic optimizes client asset delivery for lightning fast downloads via a CDN and aggressive cache headers.
+                | Client assets automatically deployed to a global CDN for lightning fast downloads with compression and aggressive cache headers.
         .col-sm-6
           .row.boxFeature
             .col-xs-3
-              i.icon-code.iconBig
+              i.icon-cog-alt.iconBig
             .col-xs-9
-              h2 Use the libraries you love
+              h2 API Integration
               p
-                | Aerobatic is a platform, not a framework. Build your app with any browser technology you wish including AngularJS, Ember, Bootstrap, Backbone, and whatever next best thing comes along.
+                | Intelligent service proxy allows injecting access keys and caching of API responses. Backend not ready yet? Configure our API mocks so you can stay full speed ahead.
       .row
         .col-sm-6
           .row.boxFeature
@@ -98,9 +91,9 @@
             .col-xs-3
               i.icon-terminal.iconBig
             .col-xs-9
-              h2 Dev friendly tools
+              h2 Developer friendly tools
               p
-                | Grunt plugin that integrates cleanly into a streamlined modern web dev workflow. Deploy a new version to production with just a few keystrokes.
+                | Grunt and Gulp plugins that integrate cleanly into a streamlined modern workflow. Deploy a new version to production with just a few keystrokes.
       .row
         .col-sm-6
           .row.boxFeature
@@ -109,7 +102,7 @@
             .col-xs-9
               h2 Works with the web
               p
-                | Rich interactivity of a single page app with the discoverability and reach of the web. Responsive layouts, SEO, HTML5 pushState, and more.
+                | Rich interactivity of a single page app with the discoverability and reach of the web. Custom SSL domains, SEO snapshots, and HTML5 pushState all included.
         .col-sm-6
           .row.boxFeature
             .col-xs-3
@@ -117,16 +110,8 @@
             .col-xs-9
               h2 Built-in Security
               p
-                | Authenticate users with OAuth. Enforce SSL with the click of a box. Keep sensitive key on the server and out of your JavaScript.
+                | Authenticate users with OAuth. Enforce SSL with the click of a box. Keep sensitive keys on the server and out of your JavaScript.
       .row
-        .col-sm-6
-          .row.boxFeature
-            .col-xs-3
-              i.icon-cog-alt.iconBig
-            .col-xs-9
-              h2 Integrate with any backend
-              p
-                | Invoke web APIs directly from the browser or use Aerobatic's intelligent service proxy to securely manage your access keys and cache API responses.
         .col-sm-6
           .row.boxFeature
             .col-xs-3
@@ -134,7 +119,16 @@
             .col-xs-9
               h2 Goodbye test environment
               p
-                | With Aerobatic’s simulator mode, run your front-end changes locally, and the rest of your app in the cloud. Preview your changes live in production.
+                | With Aerobatic’s simulator mode, run your front-end changes locally, and the rest of your app in the cloud. Preview changes and test in a fully integrated environment that exactly emulates production.
+
+        .col-sm-6
+          .row.boxFeature
+            .col-xs-3
+              i.icon-code.iconBig
+            .col-xs-9
+              h2 Use the libraries you love
+              p
+                | Aerobatic is a platform, not a framework. Build your app with AngularJS, Ember, Backbone, Bootstrap, jQuery, and whatever next best thing comes along.
       //-     //
       //-         <div class="col-sm-6">
       //-                 <div class="row boxFeature">
