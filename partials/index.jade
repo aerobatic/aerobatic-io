@@ -11,15 +11,23 @@
     .ctaBox.ctaBoxFullwidth
       .container
         .row
-          .col-lg-6.col-md-12
+          .col-lg-6.col-md-12.col-sm-12
             h1
-              strong Launching Fall 2014
-              span &nbsp;Enter your email to be among the first to find out.
+              strong Get Started
+              span &nbsp;building your app today on the Aerobatic beta platform.
 
-          .col-lg-6.col-md-12.center.launch-signup
-            form.form-inline
-              input.form-control.input-lg(type="text", placeholder="Email")
-              button.btn(type="submit") Submit
+          .col-lg-6.col-md-12.col-sm-12.center
+            a.btn.getting-started(title='', href='/docs/getting-started')
+              i.icon-flash
+              | Getting Started
+
+            a.btn(title='', href='https://portal.aerobaticapp.com/auth', target='blank')
+              i.icon-github-circled
+              | Login with GitHub
+
+            //- form.form-inline
+            //-   input.form-control.input-lg(type="text", placeholder="Email")
+            //-   button.btn(type="submit") Submit
 
           //- .col-md-3
           //-   a.btn.btn-lg(title='', href='/docs/getting-started')
@@ -30,13 +38,12 @@
           //-     i.icon-github-circled
           //-     | Login with GitHub
 
-
   section#services.slice.color1
     .container
       .row
         .col-xs-12
           h1.center
-          h2.subTitle Complements the modern web dev toolbelt
+          h2.subTitle Complements the modern front-end toolbelt
       .row
         .col-sm-2.col-xs-4
           img.img-responsive(asset-src="images/grunt-logo.png", alt="Grunt")
