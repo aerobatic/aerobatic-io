@@ -1,10 +1,10 @@
 html
   head
-    title Aerobatic - The Cloud for Front-End Developers
+    title Aerobatic - Single page app hosting, built for front-end devs
 
     meta(charset="UTF-8")
     meta(name="fragment", content="!")
-    meta(name="google-site-verification", content="YbKZLxUG3Ofxi-WvBgTalaMUg7azE4-5tmLya_6esRk")
+    meta(name="google-site-verification", content="svPuRbh7HLZd1qVXqLV0B6Wn3531cxlESFLVBMuTKEQ")
     meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1")
 
     //- Redirect the old hashbang style URLs to the new pushState format
@@ -58,10 +58,10 @@ html
                     i.icon-book
                     | Docs
 
-                //- li(ng-class="{current:navSelected('/pricing')}")
-                //-   a(href='/pricing')
-                //-     i.icon-table
-                //-     | Pricing
+                li(ng-class="{current:navSelected('/pricing')}")
+                  a(href='/pricing')
+                    i.icon-table
+                    | Pricing
 
                 li(ng-class="{current:navSelected('/gallery')}")
                   a(href='/gallery')
@@ -118,7 +118,9 @@ html
     script(src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular-route.min.js")
     script(src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular-animate.min.js")
     script(src="dist/components.min.js")
-    script(src="//www.google-analytics.com/analytics.js")
+
+    script.
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
     //- Release scripts
     script(data-aero-build="release" src="dist/app.min.js")
