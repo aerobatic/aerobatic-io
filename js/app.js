@@ -35,12 +35,10 @@ angular.module('aerobatic-io').run(function ($log, $rootScope, $location, analyt
   // Preserve the querystring during HTML5 view navigations when in simulator
   // mode. This way when livereload forces the browser to refresh we won't lose
   // the fact we are in simulator mode designeated by the "sim=1" in the querystring.
-  if (aerobatic.simulator === true) {
-    var originalQuery = $location.search();
-    $rootScope.$on('$routeChangeStart', function() {
-      for (var key in originalQuery) {
-        $location.search(key, originalQuery[key]);
-      }
-    });
-  }
+  var originalQuery = $location.search();
+  $rootScope.$on('$routeChangeStart', function() {
+    for (var key in originalQuery) {
+      $location.search(key, originalQuery[key]);
+    }
+  });
 });
