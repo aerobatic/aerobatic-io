@@ -7,23 +7,6 @@
         h2 The <i>best</i> place to deploy AngularJS, Ember, and Backbone apps. <a href="#features" offset='150' class='learn-more' du-smooth-scroll>Learn more</a>.
 
   //-  call to action
-  section.color4.cta
-    .ctaBox.ctaBoxFullwidth
-      .container
-        .row
-          .col-lg-6.col-md-12.col-sm-12
-            h1
-              strong Get Started
-              span &nbsp;building your app today on the Aerobatic beta platform.
-
-          .col-lg-6.col-md-12.col-sm-12.center
-            a.btn.getting-started(title='', href='/docs/getting-started')
-              i.icon-flash
-              | Getting Started
-
-            a.btn(title='', href='https://portal.aerobaticapp.com/auth', target='blank')
-              i.icon-github-circled
-              | Login with GitHub
 
             //- form.form-inline
             //-   input.form-control.input-lg(type="text", placeholder="Email")
@@ -57,97 +40,107 @@
         .col-sm-2.col-xs-4
           img.img-responsive(asset-src="images/backbone-logo.png", alt="Backbone")
         .col-sm-2.col-xs-4
-          img.img-responsive(asset-src="images/yeoman-logo.png", alt="Yeoman")
+          img.img-responsive(asset-src="images/gulp-logo.png", alt="Gulp")
 
   //-  features
   a#features(du-smooth-scroll)
   section#services.slice.color1
     .container
-      .row
-        .col-xs-12
-          h1.center Features
-          h2.subTitle Smart hosting for cutting edge web apps
-      .row
-        .col-sm-6
-          .row.boxFeature
-            .col-xs-3
-              i.icon-cloud-flash.iconBig
-            .col-xs-9
-              h2 Automatic CDN Deployment
-              p
-                | Client assets automatically deployed to a global CDN for lightning fast downloads with compression and aggressive cache headers.
-        .col-sm-6
-          .row.boxFeature
-            .col-xs-3
-              i.icon-cog-alt.iconBig
-            .col-xs-9
-              h2 API Integration
-              p
-                | Intelligent service proxy allows injecting access keys and caching of API responses. Backend not ready yet? Configure our API mocks so you can stay full speed ahead.
-      .row
-        .col-sm-6
-          .row.boxFeature
-            .col-xs-3
-              i.icon-shuffle.iconBig
-            .col-xs-9
-              h2 Split test like a pro
-              p
-                | Not sure how users will react to your app’s latest version? Split your traffic with a simple slider and watch the results in real-time.
-        .col-sm-6
-          .row.boxFeature
-            .col-xs-3
-              i.icon-terminal.iconBig
-            .col-xs-9
-              h2 Developer friendly tools
-              p
-                | Grunt and Gulp plugins that integrate cleanly into a streamlined modern workflow. Deploy a new version to production with just a few keystrokes.
-      .row
-        .col-sm-6
-          .row.boxFeature
-            .col-xs-3
-              i.icon-network.iconBig
-            .col-xs-9
-              h2 Works with the web
-              p
-                | Rich interactivity of a single page app with the discoverability and reach of the web. Custom SSL domains, SEO snapshots, and HTML5 pushState all included.
-        .col-sm-6
-          .row.boxFeature
-            .col-xs-3
-              i.icon-lock-empty.iconBig
-            .col-xs-9
-              h2 Built-in Security
-              p
-                | Authenticate users with OAuth. Enforce SSL with the click of a box. Keep sensitive keys on the server and out of your JavaScript.
-      .row
-        .col-sm-6
-          .row.boxFeature
-            .col-xs-3
-              i.icon-block.iconBig
-            .col-xs-9
-              h2 Goodbye test environment
-              p
-                | With Aerobatic’s simulator mode, run your front-end changes locally, and the rest of your app in the cloud. Preview changes and test in a fully integrated environment that exactly emulates production.
+      //- .row
+      //-   .col-xs-12
+      //-     h1.center Features
+      //-     h2.subTitle Smart hosting for cutting edge web apps
 
-        .col-sm-6
-          .row.boxFeature
-            .col-xs-3
-              i.icon-code.iconBig
-            .col-xs-9
-              h2 Use the libraries you love
-              p
-                | Aerobatic is a platform, not a framework. Build your app with AngularJS, Ember, Backbone, Bootstrap, jQuery, and whatever next best thing comes along.
-      //-     //
-      //-         <div class="col-sm-6">
-      //-                 <div class="row boxFeature">
-      //-                   <div class="col-xs-3">
-      //-                     <i class="icon-signal iconBig"></i>
-      //-                   </div>
-      //-                   <div class="col-xs-9">
-      //-                     <h2>Real-Time</h2>
-      //-                     <p>Leverage our web socket hooks to build real-time applications right in the browser.</p>
-      //-                   </div>
-      //-                 </div>
-      //-               </div>
-      //-             </div>
-      //-           </div>
-      //- //
+      .row.boxFeature
+        .col-sm-2.col-xs-3
+          i.icon-window.iconBig
+        .col-sm-10.col-xs-9
+          h2 Purpose-built for single page applications
+          p
+            | Aerobatic was designed from the ground-up specifically for developing and hosting single page apps. Everything you need as a front-end developer including <b>SEO</b>, <b>command line deployment</b>, <b>API key</b> management, <b>Grunt/Gulp</b> integration, and more come right out of the box. Let Aerobatic handle the plumbing so you can focus on building great apps.
+
+      .row.boxFeature
+        .col-sm-2.col-xs-3
+          i.icon-cloud-flash.iconBig
+
+        .col-sm-10.col-xs-9
+          h2 Optimized for performance by default
+          p
+            | Your assets are served minified, gzipped, and with aggressive cache headers via a <b>worldwide CDN</b>. Achieve high page speed marks from day one that your users will appreciate.
+
+      .row.boxFeature
+        .col-sm-2.col-xs-3
+          i.icon-cog-alt.iconBig
+        .col-sm-10.col-xs-9
+          h2 API Integration
+          p
+            | APIs are the lifeblood of single page apps. Let the Aerobatic service proxy inject your <b>API keys</b> on the server rather than hardcoding in your code. <b>Cache</b> API responses for more predictable response times. Backend not ready yet? Upload your specs and the proxy will provide <b>mock responses</b> so you don't have to slow down.
+
+      .row.boxFeature
+        .col-sm-2.col-xs-3
+          i.icon-terminal.iconBig
+        .col-sm-10.col-xs-9
+          h2 Developer friendly tooling
+          p
+            | <b>Grunt</b> and <b>Gulp</b> plugins that integrate cleanly into a streamlined modern workflow. Deploy a new version to production with just a few keystrokes. Wire up to your CI server for <b>continuous delivery</b>.
+
+      .row.boxFeature
+        .col-sm-2.col-xs-3
+          i.icon-network.iconBig
+        .col-sm-10.col-xs-9
+          h2 Take advantage of the modern web
+          p
+            | Rich interactivity of a single page app with the discoverability and reach of the web. Custom <b>SSL domains</b>, <b>automated SEO snapshots</b>, and <b>HTML5 pushState</b> all included.
+
+      .row.boxFeature
+        .col-sm-2.col-xs-3
+          i.icon-users-outline.iconBig
+        .col-sm-10.col-xs-9
+          h2 Works for Teams
+          p
+            | Aerobatic Organizations makes it easy for teams to collaborate and build apps together. Manage all your apps in one place. <b>Share common APIs</b> and configuration across multiple apps.
+
+      .row.boxFeature
+        .col-sm-2.col-xs-3
+          i.icon-lock-empty.iconBig
+        .col-sm-10.col-xs-9
+          h2 Built-in Security
+          p
+            | Authenticate users with <b>OAuth</b>. Enforce <b>SSL</b> with the click of a box. Keep <b>sensitive keys</b> on the server and out of your JavaScript.
+
+      .row.boxFeature
+        .col-sm-2.col-xs-3
+          i.icon-shuffle.iconBig
+        .col-sm-10.col-xs-9
+          h2 Split test like a pro
+          p
+            | Not sure how users will react to your app’s latest version? Aerobatic <b>traffic control rules</b> let's you split your traffic with a simple slider and monitor the results in real-time. Or mitigate risk by soft launching new versions to just a small subset of users.
+
+      .row.boxFeature
+        .col-sm-2.col-xs-3
+          i.icon-block.iconBig
+        .col-sm-10.col-xs-9
+          h2 Goodbye test environment
+          p
+            | With Aerobatic’s simulator mode, run your front-end changes locally, and the rest of your app in the cloud. Test changes in a fully integrated environment that exactly <b>emulates production</b>. Let stakeholders <b>preview and approve</b> new versions via private URL before flipping the switch to release into the wild.
+
+      .row.boxFeature
+        .col-sm-2.col-xs-3
+          i.icon-code.iconBig
+        .col-sm-10.col-xs-9
+          h2 Use the libraries you love
+          p
+            | Aerobatic is a platform, not a framework. Build your app with <b>AngularJS</b>, <b>Ember</b>, <b>Backbone</b>, <b>Bootstrap</b>, <b>jQuery</b>, and whatever next best thing comes along. We're not trying to re-invent the wheel, just provide a smoother surface to roll on.
+
+  section.color4.cta
+    .ctaBox.ctaBoxFullwidth
+      .container
+        .row
+          .col-xs-12.center
+            a.btn.getting-started(title='', href='/docs/getting-started')
+              i.icon-flash
+              | Getting Started
+
+            a.btn(title='', href='https://portal.aerobaticapp.com/auth', target='blank')
+              i.icon-github-circled
+              | Login with GitHub
