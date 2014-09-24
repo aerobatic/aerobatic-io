@@ -21,6 +21,23 @@
           //-     i.icon-github-circled
           //-     | Login with GitHub
 
+  section.color4.cta
+    .ctaBox.ctaBoxFullwidth
+      .container
+        .row
+          .col-xs-12.center
+            h2 LAUNCHING FALL 2014
+        .row
+          .col-xs-12.center
+            a.btn.getting-started(title='', href='/docs/getting-started')
+              i.icon-flash
+              | Getting Started
+
+            a.btn(title='', href='https://portal.aerobaticapp.com/auth', target='blank')
+              i.icon-github-circled
+              | Signup for Beta
+
+
   section#services.slice.color1
     .container
       .row
@@ -43,8 +60,8 @@
           img.img-responsive(asset-src="images/gulp-logo.png", alt="Gulp")
 
   //-  features
-  a#features(du-smooth-scroll)
-  section#services.slice.color1
+  section#boxFeatures.slice.color1
+    a#features(du-smooth-scroll)
     .container
       //- .row
       //-   .col-xs-12
@@ -74,7 +91,7 @@
         .col-sm-10.col-xs-9
           h2 API Integration
           p
-            | APIs are the lifeblood of single page apps. Let the Aerobatic service proxy inject your <b>API keys</b> on the server rather than hardcoding in your code. <b>Cache</b> API responses for more predictable response times. Backend not ready yet? Upload your specs and the proxy will provide <b>mock responses</b> so you don't have to slow down.
+            | APIs are the lifeblood of single page apps. Use the Aerobatic proxy to invoke non CORS enabled services or to inject your <b>API keys</b> to avoid exposing in your source code. in your code. <b>Cache</b> API responses for more predictable response times. Backend not ready yet? Upload your specs and the proxy will return <b>mock responses</b> so you don't have to slow down.
 
       .row.boxFeature
         .col-sm-2.col-xs-3
@@ -114,7 +131,7 @@
         .col-sm-10.col-xs-9
           h2 Split test like a pro
           p
-            | Not sure how users will react to your app’s latest version? Aerobatic <b>traffic control rules</b> let's you split your traffic with a simple slider and monitor the results in real-time. Or mitigate risk by soft launching new versions to just a small subset of users.
+            | Not sure how users will react to your app’s latest version? Aerobatic <b>Traffic Control Rules</b> let's you split your traffic with a simple slider and monitor the results in real-time. Or mitigate risk by soft launching new versions to a small portion of users.
 
       .row.boxFeature
         .col-sm-2.col-xs-3
@@ -143,4 +160,4 @@
 
             a.btn(title='', href='https://portal.aerobaticapp.com/auth', target='blank')
               i.icon-github-circled
-              | Login with GitHub
+              | Signup for Beta
