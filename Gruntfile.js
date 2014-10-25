@@ -104,6 +104,7 @@ module.exports = function(grunt) {
     clean: ['tmp'],
     aerobatic: {
       deploy: {
+        cowboy: true,
         src: ['index.html', 'dist/**/*.*', 'favicons/*', 'font/*', 'images/*.*', 'sitemap.xml', 'robots.txt']
       },
       sim: {
