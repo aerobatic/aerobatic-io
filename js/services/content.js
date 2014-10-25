@@ -88,21 +88,27 @@ angular.module('services').service('content', function($rootScope, $http, $q, $l
 
       var deferred = $q.defer();
 
-      var proxyUrl = '/proxy?url=' + encodeURIComponent(apiUrl);
-
-      // Instruct the proxy to cache the content for 1 hour.
-      proxyUrl += '&cache=1&ttl=' + (60 * 60);
-
-      // Specify that the API response should pass through the markdown transform
-      proxyUrl += '&transform=markdown';
+      var options = {
+        params: {
+          url: apiUrl,
+          transform: 'markdown',
+          cache: 1,
+          ttl: 60*60
+        },
+        headers: {
+          Accept: 'text/html'
+        }
+      };
 
       $log.debug("Proxying api call", apiUrl);
-      $http.get(proxyUrl).success(function(data) {
-        deferred.resolve(data);
-      }).error(function(err) {
-        $log.error("Error returned from API proxy", err);
-        deferred.reject(err);
-      });
+      $http.get('/proxy', options)
+        .success(function(data) {
+          $log.debug('Content received from proxy');
+          deferred.resolve(data);
+        }).error(function(err) {
+          $log.error("Error returned from API proxy", err);
+          deferred.reject(err);
+        });
 
       // Return a promise to the caller
       return deferred.promise;

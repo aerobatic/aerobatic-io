@@ -1,9 +1,9 @@
 {
   "name": "aerobatic-io",
-  "version": "0.0.0",
-  "homepage": "http://www.aerobatic.io",
+  "version": "0.0.1",
+  "homepage": "http://www.aerobatic.com",
   "authors": [
-    "David Von Lehman <david@aerobatic.io>"
+    "David Von Lehman <david@aerobatic.com>"
   ],
   "main": "index.html",
   "keywords": [
@@ -23,6 +23,10 @@
     "lodash": "~2.4.1",
     "underscore.string": "~2.3.3",
     "angular-ui-bootstrap-bower": "~0.11.0",
-    "angular-scroll": "~0.6.2"
+    "angular-scroll": "~0.6.2",
+    "angular": "~1.3.0",
+    "angular-resource": "~1.3.0",
+    "angular-animate": "~1.3.0",
+    "angular-route": "~1.3.0"
   }
 }
