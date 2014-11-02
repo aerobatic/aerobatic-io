@@ -95,10 +95,6 @@ module.exports = function(grunt) {
       partials: {
         files: ['partials/*.jade'],
         tasks: ['jade:partials']
-      },
-      markdown: {
-        files: ['content/**/*.md'],
-        tasks: ['markdown']
       }
     },
     clean: ['tmp'],
@@ -108,38 +104,17 @@ module.exports = function(grunt) {
         src: ['index.html', 'dist/**/*.*', 'favicons/*', 'font/*', 'images/*.*', 'sitemap.xml', 'robots.txt']
       },
       sim: {
-        index: 'index.html',
         port: 3000,
         livereload: true
-      },
-      snapshot: {
-        all: {
-          timeout: 2000
-        }
-      },
-      cache: {
-        keys: {}
       }
-    },
-    markdown: {
-      all: {
-        files: [
-          {
-            expand: true,
-            src: 'content/**/*.md',
-            dest: 'dist/',
-            ext: '.html'
-          }
-        ]
-      }
-    },
+    }
   });
 
   // Specify the sync arg to avoid blocking the watch
-  grunt.registerTask('sim', ['build', 'aerobatic:sim:sync', 'watch']);
+  grunt.registerTask('sim', ['jade', 'stylus', 'aerobatic:sim:sync', 'watch']);
   grunt.registerTask('deploy', ['build', 'aerobatic:deploy']);
 
-  grunt.registerTask('build', ['jshint', 'jade', 'stylus', 'cssmin', 'ngmin', 'uglify', 'concat', 'markdown', 'clean']);
+  grunt.registerTask('build', ['jshint', 'jade', 'stylus', 'cssmin', 'ngmin', 'uglify', 'concat', 'clean']);
   grunt.registerTask('snapshot', ['aerobatic:snapshot']);
 
   grunt.loadNpmTasks('grunt-favicons');
@@ -149,10 +124,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
-  // grunt.loadTasks('../grunt-aerobatic/tasks');
   grunt.loadNpmTasks('grunt-aerobatic');
   grunt.loadNpmTasks('grunt-ngmin');
-  grunt.loadNpmTasks('grunt-markdown');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-concat');
 };

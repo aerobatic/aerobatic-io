@@ -34,7 +34,8 @@ html
     //- Used for code highlighting in markdown
 
     link(rel='Stylesheet', href="font/fontello-embedded.css")
-    link(rel='Stylesheet', href='dist/app.min.css')
+    link(rel='Stylesheet', data-aero-build="debug", href='tmp/app.css')
+    link(rel='Stylesheet', data-aero-build="release", href='dist/app.min.css')
 
   body(ng-app='aerobatic-io')
     #appContainer(ng-controller='MainCtrl', ng-cloak)
