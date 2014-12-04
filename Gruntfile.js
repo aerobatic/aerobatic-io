@@ -50,7 +50,7 @@ module.exports = function(grunt) {
     cssmin: {
       minify: {
         src: ['app/tmp/app.css', 'app/css/github-markdown.css'],
-        dest: 'dist/app.min.css'
+        dest: 'dist/css/app.min.css'
       }
     },
     ngAnnotate: {
