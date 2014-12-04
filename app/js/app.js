@@ -9,22 +9,46 @@ _.templateSettings = {
 angular.module('services', []);
 angular.module('controllers', ['services']);
 angular.module('directives', ['services']);
-angular.module('aerobatic-io', ['ngRoute', 'ngAnimate', 'ui.bootstrap', 'duScroll', 'services', 'controllers', 'directives']);
+angular.module('aerobatic-io', ['ngRoute', 'ngAnimate', 'ui.bootstrap', 'duScroll', 
+  'Aerobatic', 'services', 'controllers', 'directives', 'templates']);
 
-angular.module('services').value('aerobatic', window.__config__);
-
-angular.module('aerobatic-io').config(function($routeProvider, $locationProvider) {
+angular.module('aerobatic-io').config(function($routeProvider, $locationProvider, aerobaticProvider) {
   // Use the bang prefix for Google ajax crawlability
   // https://developers.google.com/webmasters/ajax-crawling/docs/specification?csw=1
   $locationProvider.html5Mode(true);
 
-  $routeProvider.when('/', { template: JST['partials/index']() })
-    .when('/docs/:article?', { template: JST['partials/docs'](), controller: 'DocsCtrl' })
-    .when('/blog/:year?/:month?/:day?/:title?', { template: JST['partials/blog'](), controller: 'BlogCtrl'})
-    .when('/contact', {template: JST['partials/contact']() })
-    .when('/pricing', {template: JST['partials/pricing']() })
-    .when('/gallery', {template: JST['partials/gallery']() })
-    .otherwise({ redirectTo: '/' });
+  function templateUrl(path) {
+    if (aerobaticProvider.config.buildType === 'debug')
+      return aerobaticProvider.config.cdnUrl + '/' + path;
+    else
+      return path;
+  }
+
+  $routeProvider
+    .when('/', {
+      controller: 'IndexCtrl',
+      templateUrl: templateUrl('partials/index.jade')
+    })
+    .when('/docs/:article?', { 
+      controller: 'DocsCtrl',
+      templateUrl: templateUrl('partials/docs.jade')
+    })
+    .when('/blog/:year?/:month?/:day?/:title?', { 
+      templateUrl: templateUrl('partials/blog.jade'),
+      controller: 'BlogCtrl'
+    })
+    .when('/contact', {
+      templateUrl: templateUrl('partials/contact.jade') 
+    })
+    .when('/pricing', {
+      templateUrl: templateUrl('partials/pricing.jade') 
+    })
+    .when('/gallery', {
+      templateUrl: templateUrl('partials/gallery.jade')
+    })
+    .otherwise({ 
+      redirectTo: '/' 
+    });
 });
 
 angular.module('aerobatic-io').run(function ($log, $rootScope, $location, analytics, content, aerobatic) {

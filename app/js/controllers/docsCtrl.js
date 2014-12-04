@@ -5,7 +5,7 @@ angular.module('controllers').controller('DocsCtrl', function($scope, $rootScope
       return $location.path(index.docArticles[0].urlPath);
     }
 
-    var article = _.find(index.docArticles, {'slug': $routeParams.article});
+    var article = _.find(index.docs, {'url': $routeParams.article});
     if (!article)
       return $location.path('404');
 
@@ -13,7 +13,7 @@ angular.module('controllers').controller('DocsCtrl', function($scope, $rootScope
     $document[0].title = 'Aerobatic Docs | ' + article.title;
 
     $scope.docArticle = article;
-    content.load(article).then(function(content) {
+    content.load('docs/' + article.url + '.md').then(function(content) {
       $scope.content = $sce.trustAsHtml(content);
       $rootScope.$broadcast('nestedContentLoaded');
     });

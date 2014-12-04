@@ -195,7 +195,7 @@ body {
 h1, h2, h3, h4, h5, h6, legend {
   margin:0;
   font-weight: 300;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 h1 {
@@ -239,7 +239,7 @@ h1.noSubtitle{
   line-height: 33px;
   margin-bottom: 0;
   font-weight: 300;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
   padding-left: 0;
   border: none;
   text-transform: uppercase;
@@ -287,19 +287,18 @@ h1.bigTitle:after, .boxWrapper h1:after, .pricingBloc h1:after, .team h1:after, 
   content:none
 }
 h3, legend {
-  font-size: 18px;
+  font-size: 20px;
   line-height: 22px;
   margin-bottom: 14px;
-  font-weight: 600;
-  letter-spacing: -0.06em;
+  font-weight: 400;
+  /*letter-spacing: -0.06em;*/
 }
 h4 {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 22px;
   margin-bottom: 6px;
-  font-style: bold;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight:300;
+  /*font-family: Roboto, Helvetica, sans-serif;*/
+  font-weight:500;
 }
 h5 {
   font-style: normal;
@@ -335,7 +334,7 @@ li {
 }
 a:link, a:visited {
   text-decoration:none;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 a:hover, a:active {
   text-decoration:underline;
@@ -353,7 +352,7 @@ blockquote {
   line-height: 33px;
   margin-bottom:0;
   font-weight:300;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
   padding:0;
   border:none;
   text-align:left;
@@ -458,7 +457,7 @@ section.cta {
   line-height: 33px;
   margin-bottom:0;
   font-weight:300;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
   padding:0;
   border:none;
   text-align:left;
@@ -937,7 +936,7 @@ body#comingSoon{padding-top:0; background: #4B4A4A}
 .comingSoonLogo {margin: 22px auto}
 .bgComingSoon{padding-top:10%; padding-bottom:10%;}
 
-.countdown_amount {display:block;font-size:44px; padding-top:60px; line-height:0; font-family: 'Open Sans', sans-serif; font-weight:300; color:#333;}
+.countdown_amount {display:block;font-size:44px; padding-top:60px; line-height:0; font-family: 'Roboto', sans-serif; font-weight:300; color:#333;}
 .countdown_section {display:inline-block; width:150px; height:150px; margin:10px; border-radius: 50%; border:3px solid #eee; text-align: center}
 #defaultCountdown {text-align: center;}
 .logoImg {height:200px; width:200px; border:2px solid #eee;}

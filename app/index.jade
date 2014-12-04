@@ -7,6 +7,7 @@ html
     meta(charset="UTF-8")
     meta(name="google-site-verification", content="svPuRbh7HLZd1qVXqLV0B6Wn3531cxlESFLVBMuTKEQ")
     meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1")
+    meta(name="fragment" content="!")
 
     //- Redirect the old hashbang style URLs to the new pushState format
     script.
@@ -29,13 +30,14 @@ html
     style.
       [ng-cloak]: { display: none }
 
-    link(rel='Stylesheet', href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css")
-    link(rel='Stylesheet', href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,800")
+    link(rel='stylesheet', href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css")
+    link(rel='stylesheet', href="//fonts.googleapis.com/css?family=Roboto:500,400,300")
     //- Used for code highlighting in markdown
 
-    link(rel='Stylesheet', href="font/fontello-embedded.css")
-    link(rel='Stylesheet', data-aero-build="debug", href='tmp/app.css')
-    link(rel='Stylesheet', data-aero-build="release", href='dist/app.min.css')
+    link(rel='stylesheet', href="font/fontello-embedded.css")
+    link(rel='stylesheet', data-aero-build="debug", href='css/theme.css')
+    link(rel='stylesheet', data-aero-build="debug", href='css/custom.styl')
+    link(rel='stylesheet', data-aero-build="release", href='app.min.css')
 
   body(ng-app='aerobatic-io')
     #appContainer(ng-controller='MainCtrl', ng-cloak)
@@ -45,13 +47,13 @@ html
           nav.navbar.navbar-default.scrollMenu(role='navigation')
             .navbar-header
               button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-ex1-collapse', ng-init="navCollapsed = true", ng-click="navCollapsed = !navCollapsed")
-                span.sr-only Toggle navigation
+                span.sr-only Toggle navigation1
                 span.icon-bar
                 span.icon-bar
                 span.icon-bar
               a.navbar-brand(href='/')
                 img(src='images/logo-small.png', alt='Aerobatic')
-                {{location.path()}}
+                span {{location.path()}}
 
             .collapse.navbar-collapse.navbar-ex1-collapse(ng-class="!navCollapsed && 'in'", ng-click="navCollapsed=true")
               ul.nav.navbar-nav.pull-right
@@ -92,14 +94,14 @@ html
             div.toc.well(ng-show="showDocsMenu()")
               h3 Table of Contents
               ul(ng-cloak)
-                li(ng-repeat="article in ::contentIndex.docArticles")
-                  a(ng-href="{{::article.urlPath}}", ng-class="{active:isActiveToc(article)}") {{article.title}}
+                li(ng-repeat="article in ::contentIndex.docs")
+                  a(ng-href="docs/{{::article.url}}", ng-class="{active:isActiveToc(article)}") {{article.title}}
 
             div.toc.well(ng-show="showBlogMenu()")
               h3 Blog Posts
               ul(ng-cloak)
                 li(ng-repeat="post in ::contentIndex.blogPosts")
-                  a(ng-href="{{::post.urlPath}}", ng-class="{active:isActiveToc(post)}") {{post.title}}
+                  a(ng-href="blog/{{::post.url}}", ng-class="{active:isActiveToc(post)}") {{post.title}}
 
           .col-xs-12(ng-class="showLeftMenu() ? 'col-md-9' : 'col-md-12'")
             .view-animate-container.rtl
@@ -123,30 +125,32 @@ html
                 //-     i.icon-github-circled.iconRounded
 
 
+    script(src="//cdn.jsdelivr.net/lodash/2.4.1/lodash.min.js")
+
     div(data-aero-build="release")
-      script(src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular.min.js")
-      script(src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular-route.min.js")
-      script(src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular-animate.min.js")
-      script(src="dist/components.min.js")
-      script(src="dist/app.min.js")
+      script(src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.4/angular.min.js")
+      script(src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.4/angular-route.min.js")
+      script(src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.4/angular-animate.min.js")
+      script(src="components.min.js")
+      script(src="app.min.js")
 
     div(data-aero-build="debug")
-      script(src="bower_components/angular/angular.js")
-      script(src="bower_components/angular-resource/angular-resource.js")
-      script(src="bower_components/angular-route/angular-route.js")
-      script(src="bower_components/angular-animate/angular-animate.js")
-      script(src="bower_components/angular-ui-bootstrap-bower/ui-bootstrap.js")
-      script(src="bower_components/lodash/dist/lodash.min.js")
-      script(src="bower_components/underscore.string/lib/underscore.string.js")
-      script(src="bower_components/angular-scroll/angular-scroll.js")
+      script(src="node_modules/angular/angular.js")
+      script(src="node_modules/angular-resource/angular-resource.js")
+      script(src="node_modules/angular-route/angular-route.js")
+      script(src="node_modules/angular-animate/angular-animate.js")
+      script(src="node_modules/angular-bootstrap/ui-bootstrap.js")
+      script(src="node_modules/underscore.string/lib/underscore.string.js")
+      script(src="node_modules/angular-scroll/angular-scroll.js")
+      script(src="node_modules/angular-aerobatic/angular-aerobatic.js")
 
     script.
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
     //- Load our partial views that have been compiled to JavaScript
-    script(src="dist/partials.min.js")
 
     div(data-aero-build="debug")
+      //- script(src="tmp/templates.js")
       script(src="js/app.js")
       script(src="js/controllers/indexCtrl.js")
       script(src="js/controllers/mainCtrl.js")

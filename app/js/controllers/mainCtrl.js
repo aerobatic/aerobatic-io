@@ -23,7 +23,7 @@ angular.module('controllers').controller('MainCtrl', function($scope, $location,
   $scope.navCollapsed = true;
 
   $scope.isActiveToc = function(content) {
-    return $location.path() == content.urlPath;
+    return $location.path() == content.url;
   };
 
   $scope.toggleNav = function() {

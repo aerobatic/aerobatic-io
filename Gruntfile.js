@@ -3,41 +3,36 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
 
     jshint: {
-      all: ['Gruntfile.js', 'js/**/*.js', 'test/**/*.js']
-    },
-    favicons: {
-      options: {
-        appleTouchBackgroundColor: "#ffffff",
-        html: 'index.html',
-        HTMLPrefix: 'favicons/',
-        windowsTile: false
-      },
-      icons: {
-        src: 'favicon.png',
-        dest: 'favicons'
-      }
+      all: ['Gruntfile.js', 'app/js/**/*.js', 'test/**/*.js']
     },
     uglify: {
       build: {
         files: {
-          'dist/app.min.js': ['tmp/build.js']
+          'dist/app.min.js': ['tmp/build.js', 'app/tmp/templates.js'],
+          'dist/components.min.js': [
+            'node_modules/underscore.string/lib/underscore.string.js',
+            'node_modules/angular-bootstrap/ui-bootstrap.js',
+            'node_modules/angular-scroll/angular-scroll.js',
+            'node_modules/angular-aerobatic/angular-aerobatic.js'
+          ]
         }
       }
     },
+    html2js: {
+      options: {
+        base: 'app',
+        module: 'templates',
+        singleModule: true
+      },
+      main: {
+        src: ['app/partials/*.jade'],
+        dest: 'app/tmp/templates.js'
+      },
+    },
     jade: {
       compile: {
-        options: {
-        },
         files: {
-          "index.html": ["index.jade"]
-        }
-      },
-      partials: {
-        options: {
-          client: true
-        },
-        files: {
-          "dist/partials.min.js": ["partials/*.jade"]
+          "dist/index.html": ["app/index.jade"]
         }
       }
     },
@@ -48,84 +43,55 @@ module.exports = function(grunt) {
           'include css': true
         },
         files: {
-          'tmp/app.css': ['css/theme.css', 'css/custom.styl'] // compile and concat into single file
+          'app/tmp/app.css': ['app/css/theme.css', 'app/css/custom.styl'] // compile and concat into single file
         }
       }
     },
     cssmin: {
       minify: {
-        src: ['tmp/app.css', 'css/github-markdown.css'],
+        src: ['app/tmp/app.css', 'app/css/github-markdown.css'],
         dest: 'dist/app.min.css'
       }
     },
-    ngmin: {
+    ngAnnotate: {
       target: {
-        src: ['js/**/*.js'],
+        src: ['app/js/**/*.js'],
         dest: 'tmp/build.js'
       }
     },
-    concat: {
-      libs: {
-        src: [
-          'bower_components/lodash/dist/lodash.min.js',
-          'bower_components/underscore.string/dist/underscore.string.min.js',
-          'bower_components/angular-ui-bootstrap-bower/ui-bootstrap.min.js',
-          'bower_components/angular-scroll/angular-scroll.min.js'
-        ],
-        dest: 'dist/components.min.js',
+    copy: {
+      dist: {
+        files: [
+          {cwd: 'app', src: ['images/**'], dest: 'dist/', expand: true},
+          {cwd: 'app', src: ['favicons/**'], dest: 'dist/', expand: true},
+          {cwd: 'app', src: ['font/**'], dest: 'dist/', expand: true},
+        ]
       }
     },
     watch: {
       options: {
-        spawn: true,
-        livereload: true
-      },
-      index: {
-        files: ['index.jade'],
-        tasks: ['jade']
+        spawn: true
       },
       stylus: {
-        files: ['css/*.styl', 'css/*.css'],
-        tasks: ['stylus', 'cssmin', 'clean']
-      },
-      js: {
-        files: ['js/**/*.js'],
-        tasks: ['jshint']
-      },
-      partials: {
-        files: ['partials/*.jade'],
-        tasks: ['jade:partials']
+        files: ['app/css/*.styl'],
+        tasks: ['stylus']
       }
     },
-    clean: ['tmp'],
-    aerobatic: {
-      deploy: {
-        cowboy: true,
-        src: ['index.html', 'dist/**/*.*', 'favicons/*', 'font/*', 'images/*.*', 'sitemap.xml', 'robots.txt']
-      },
-      sim: {
-        port: 3000,
-        livereload: true
-      }
-    }
+    clean: ['tmp']
   });
 
   // Specify the sync arg to avoid blocking the watch
-  grunt.registerTask('sim', ['jade', 'stylus', 'aerobatic:sim:sync', 'watch']);
-  grunt.registerTask('deploy', ['build', 'aerobatic:deploy']);
 
-  grunt.registerTask('build', ['jshint', 'jade', 'stylus', 'cssmin', 'ngmin', 'uglify', 'concat', 'clean']);
-  grunt.registerTask('snapshot', ['aerobatic:snapshot']);
-
-  grunt.loadNpmTasks('grunt-favicons');
+  grunt.registerTask('build', ['jshint', 'copy:dist', 'html2js', 'jade', 'stylus', 'cssmin', 'ngAnnotate', 'uglify']);
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-stylus');
   grunt.loadNpmTasks('grunt-contrib-jade');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
-  grunt.loadNpmTasks('grunt-aerobatic');
-  grunt.loadNpmTasks('grunt-ngmin');
+  grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-ng-annotate');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-html2js');
 };
