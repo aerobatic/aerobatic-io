@@ -4,8 +4,7 @@
   "description": "",
   "scripts": {
     "run": "yoke serve",
-    "build": "grunt build",
-    "watch": "grunt watch"
+    "build": "grunt build"
   },
   "repository": {
     "type": "git",

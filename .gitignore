@@ -1,6 +1,5 @@
-.aerobatic
 node_modules
 dist
-index.html
 bower_components
 tmp
+*.log

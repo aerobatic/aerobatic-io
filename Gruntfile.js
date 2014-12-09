@@ -8,7 +8,7 @@ module.exports = function(grunt) {
     uglify: {
       build: {
         files: {
-          'dist/app.min.js': ['tmp/build.js', 'app/tmp/templates.js'],
+          'dist/app.min.js': ['tmp/build.js', 'tmp/templates.js'],
           'dist/components.min.js': [
             'node_modules/underscore.string/lib/underscore.string.js',
             'node_modules/angular-bootstrap/ui-bootstrap.js',
@@ -26,7 +26,7 @@ module.exports = function(grunt) {
       },
       main: {
         src: ['app/partials/*.jade'],
-        dest: 'app/tmp/templates.js'
+        dest: 'tmp/templates.js'
       },
     },
     jade: {
@@ -43,13 +43,13 @@ module.exports = function(grunt) {
           'include css': true
         },
         files: {
-          'app/tmp/app.css': ['app/css/theme.css', 'app/css/custom.styl'] // compile and concat into single file
+          'tmp/app.css': ['app/css/theme.css', 'app/css/custom.styl'] // compile and concat into single file
         }
       }
     },
     cssmin: {
       minify: {
-        src: ['app/tmp/app.css', 'app/css/github-markdown.css'],
+        src: ['tmp/app.css', 'app/css/github-markdown.css'],
         dest: 'dist/css/app.min.css'
       }
     },
@@ -62,27 +62,29 @@ module.exports = function(grunt) {
     copy: {
       dist: {
         files: [
+          {src: 'robots.txt', dest: 'dist/'},
           {cwd: 'app', src: ['images/**'], dest: 'dist/', expand: true},
           {cwd: 'app', src: ['favicons/**'], dest: 'dist/', expand: true},
           {cwd: 'app', src: ['font/**'], dest: 'dist/', expand: true},
         ]
       }
-    },
-    watch: {
-      options: {
-        spawn: true
-      },
-      stylus: {
-        files: ['app/css/*.styl'],
-        tasks: ['stylus']
-      }
-    },
-    clean: ['tmp']
+    }
+    // ,
+    // watch: {
+    //   options: {
+    //     spawn: true
+    //   },
+    //   stylus: {
+    //     files: ['app/css/*.styl'],
+    //     tasks: ['stylus']
+    //   }
+    // },
+    clean: ['dist', 'tmp']
   });
 
   // Specify the sync arg to avoid blocking the watch
 
-  grunt.registerTask('build', ['jshint', 'copy:dist', 'html2js', 'jade', 'stylus', 'cssmin', 'ngAnnotate', 'uglify']);
+  grunt.registerTask('build', ['clean', 'jshint', 'copy:dist', 'html2js', 'jade', 'stylus', 'cssmin', 'ngAnnotate', 'uglify']);
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-stylus');
   grunt.loadNpmTasks('grunt-contrib-jade');
