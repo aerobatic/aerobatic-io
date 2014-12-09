@@ -68,17 +68,7 @@ module.exports = function(grunt) {
           {cwd: 'app', src: ['font/**'], dest: 'dist/', expand: true},
         ]
       }
-    }
-    // ,
-    // watch: {
-    //   options: {
-    //     spawn: true
-    //   },
-    //   stylus: {
-    //     files: ['app/css/*.styl'],
-    //     tasks: ['stylus']
-    //   }
-    // },
+    },
     clean: ['dist', 'tmp']
   });
 
