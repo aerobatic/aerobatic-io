@@ -63,6 +63,7 @@ module.exports = function(grunt) {
       dist: {
         files: [
           {src: 'robots.txt', dest: 'dist/'},
+          {src: 'sitemap.xml', dest: 'dist/'},
           {cwd: 'app', src: ['images/**'], dest: 'dist/', expand: true},
           {cwd: 'app', src: ['favicons/**'], dest: 'dist/', expand: true},
           {cwd: 'app', src: ['font/**'], dest: 'dist/', expand: true},

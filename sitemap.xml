@@ -1,52 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
    <url>
-      <loc>http://www.aerobatic.io/</loc>
+      <loc>http://www.aerobatic.com/</loc>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
    </url>
    <url>
-      <loc>http://www.aerobatic.io/blog/2014/07/08/build-a-publishing-platform-with-angularjs-github-and-markdown</loc>
+      <loc>http://www.aerobatic.com/blog/2014/07/08/build-a-publishing-platform-with-angularjs-github-and-markdown</loc>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
    </url>
    <url>
-      <loc>http://www.aerobatic.io/blog/2014/07/19/securing-an-html5-salesforce-connected-app</loc>
+      <loc>http://www.aerobatic.com/blog/2014/07/19/securing-an-html5-salesforce-connected-app</loc>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
    </url>
    <url>
-      <loc>http://www.aerobatic.io/blog/2014/07/23/do-it-yourself-social-sharing-buttons</loc>
+      <loc>http://www.aerobatic.com/blog/2014/07/23/do-it-yourself-social-sharing-buttons</loc>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
    </url>
    <url>
-      <loc>http://www.aerobatic.io/blog/2014/08/27/aerobatic-starter-templates</loc>
+      <loc>http://www.aerobatic.com/blog/2014/08/27/aerobatic-starter-templates</loc>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
    </url>
    <url>
-      <loc>http://www.aerobatic.io/contact</loc>
+      <loc>http://www.aerobatic.com/contact</loc>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
    </url>
    <url>
-      <loc>http://www.aerobatic.io/gallery</loc>
+      <loc>http://www.aerobatic.com/gallery</loc>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
    </url>
    <url>
-      <loc>http://www.aerobatic.io/docs/introduction</loc>
+      <loc>http://www.aerobatic.com/docs/introduction</loc>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
    </url>
    <url>
-      <loc>http://www.aerobatic.io/docs/getting-started</loc>
+      <loc>http://www.aerobatic.com/docs/getting-started</loc>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
    </url>
    <url>
-      <loc>http://www.aerobatic.io/docs/backend-integration</loc>
+      <loc>http://www.aerobatic.com/docs/backend-integration</loc>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
    </url>
