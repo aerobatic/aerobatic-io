@@ -3,7 +3,7 @@ angular.module('controllers').controller('MainCtrl', function($scope, $location,
     $scope.contentIndex = index;
 
     if (index.blogPosts.length > 0)
-      $scope.mostRecentBlogPost = index.blogPosts[0].urlPath;
+      $scope.mostRecentBlogPost = "blog/" + index.blogPosts[0].url;
   });
 
   $scope.showLeftMenu = function() {

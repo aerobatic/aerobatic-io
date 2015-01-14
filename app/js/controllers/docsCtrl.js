@@ -2,7 +2,7 @@ angular.module('controllers').controller('DocsCtrl', function($scope, $rootScope
   content.contentIndex().then(function(index) {
     if (!$routeParams.article) {
       // If no article specified, redirect to the first one.
-      return $location.path(index.docArticles[0].urlPath);
+      return $location.path("docs/" + index.docs[0].url);
     }
 
     var article = _.find(index.docs, {'url': $routeParams.article});
