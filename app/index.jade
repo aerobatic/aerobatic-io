@@ -112,8 +112,10 @@ html
           .row
             .col-sm-6
               p
-                | Copyright © 2014&nbsp;&nbsp;
-                a(href='http://www.aerobatic.com') Aerobatic LLC
+                | Copyright ©&nbsp;
+                script(type='text/javascript').
+                  document.write(new Date().getFullYear());
+                a(href='http://www.aerobatic.com') &nbsp;Aerobatic LLC
                 | &nbsp;All rights reserved.
             .col-sm-6
               ul.socialNetwork.pull-right
