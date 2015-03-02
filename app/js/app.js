@@ -9,7 +9,7 @@ _.templateSettings = {
 angular.module('services', []);
 angular.module('controllers', ['services']);
 angular.module('directives', ['services']);
-angular.module('aerobatic-io', ['ngRoute', 'ngAnimate', 'ui.bootstrap', 'duScroll', 
+angular.module('aerobatic-io', ['ngRoute', 'ngAnimate', 'duScroll', 
   'Aerobatic', 'services', 'controllers', 'directives', 'templates']);
 
 angular.module('aerobatic-io').config(function($routeProvider, $locationProvider, aerobaticProvider) {
@@ -27,7 +27,9 @@ angular.module('aerobatic-io').config(function($routeProvider, $locationProvider
   $routeProvider
     .when('/', {
       controller: 'IndexCtrl',
-      templateUrl: templateUrl('partials/index.jade')
+      templateUrl: function() {
+        return templateUrl('partials/index.jade');
+      }
     })
     .when('/docs/:article?', { 
       controller: 'DocsCtrl',
@@ -56,13 +58,7 @@ angular.module('aerobatic-io').run(function ($log, $rootScope, $location, analyt
   analytics.initialize();
   content.initialize();
 
-  // Preserve the querystring during HTML5 view navigations when in simulator
-  // mode. This way when livereload forces the browser to refresh we won't lose
-  // the fact we are in simulator mode designeated by the "sim=1" in the querystring.
-  var originalQuery = $location.search();
-  $rootScope.$on('$routeChangeStart', function() {
-    for (var key in originalQuery) {
-      $location.search(key, originalQuery[key]);
-    }
+  $rootScope.$on('$viewContentLoaded', function(){
+    $log.info("viewContentLoaded");
   });
 });

@@ -105,7 +105,7 @@ html
 
           .col-xs-12(ng-class="showLeftMenu() ? 'col-md-9' : 'col-md-12'")
             .view-animate-container.rtl
-              div.view-animate(ng-view)
+              div.view-animate.ng-view()
 
       section#footerRights.clearfix
         .container
@@ -139,7 +139,7 @@ html
       script(src="node_modules/angular-resource/angular-resource.js")
       script(src="node_modules/angular-route/angular-route.js")
       script(src="node_modules/angular-animate/angular-animate.js")
-      script(src="node_modules/angular-bootstrap/ui-bootstrap.js")
+      //- script(src="node_modules/angular-bootstrap/ui-bootstrap.js")
       script(src="node_modules/underscore.string/lib/underscore.string.js")
       script(src="node_modules/angular-scroll/angular-scroll.js")
       script(src="node_modules/angular-aerobatic/angular-aerobatic.js")
