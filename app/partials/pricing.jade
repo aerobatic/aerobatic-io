@@ -2,53 +2,63 @@
   section.page.content(ng-cloak)
     .container
       h1 Pricing
-      .row
-        .col-md-4
-          ul.list-group.pricing
-            li.list-group-item.header
-              span.h4 Indie Edition
-            li.list-group-item.center
-              span.h4 Free
-            li.list-group-item.center
-              a.btn.btn-default(href="https://portal.aerobaticapp.com/auth") Sign-In
-            li.list-group-item Up to 5 apps
-            li.list-group-item Sole developer
-            li.list-group-item 5GB transfer
-            li.list-group-item aerobaticapp.com domain with SSL
-            li.list-group-item Standard support
+      p Our pricing is simple and transparent. You pay one monthly rate based on the number of platform operations collectively executed on behalf of all apps belonging to your organization. A platform operation corresponds to an HTTP unit of work such as: serving your index.html page, proxying an API call, or authenticating with an OAuth provider. 
+      p You don't pay anything for delivery of static assets off our CDN. All tiers include the full feature set. You can track your usage in real-time and upgrade or downgrade tiers at any time.
 
-        .col-md-4
+      .alert.alert-info <span style="font-weight:500">Our paid organization plans are currently in private beta</span>. If you'd like to get access, just drop us a line at <a href="orville@aerobatic.io">orville@aerobatic.io</a> and we'll get you setup. In the meantime you are welcome to use our <a href="https://portal.aerobaticapp.com">free beta service</a>. Any apps you create during the beta will be transferrable to an organization account.
+
+      .row(style="margin-top:30px")
+        .col-md-3
           ul.list-group.pricing
             li.list-group-item.header
-              span.h4 Organizations
-            li.list-group-item.center
-              span.h4 $20 a month + $.15 a GB
-            li.list-group-item.center
-              a.btn.btn-default(href="#") Coming Soon
+              span.h4 Tier 1
+            li.list-group-item
+              span.h4 $30 / month
+            li.list-group-item 150K operations
             li.list-group-item Unlimited apps
-            li.list-group-item Unlimited developers
-            li.list-group-item Custom domains with SSL
-            li.list-group-item 
-              span API Gateway
-              a(href="/docs/api-gateway") 
-                i.icon-info-circled
+            li.list-group-item Unlimited collaborators
+            li.list-group-item.center
+              a.btn.btn-default(href="https://portal.aerobaticapp.com/sign-up?plan=tier1", disabled) Sign Up
 
-            li.list-group-item 
-              span Automated search snapshots
-              a(href="/docs/seo") 
-                i.icon-info-circled
-
-            li.list-group-item 
-              span Traffic control rules
-              a(href="/docs/traffic-control") 
-                i.icon-info-circled
-
-            li.list-group-item Priority support
-
-        .col-md-4
+        .col-md-3
           ul.list-group.pricing
             li.list-group-item.header
-              span.h4 Enterprise Edition
+              span.h4 Tier 2
+            li.list-group-item
+              span.h4 $50 / month 
+              span.discount (10% discount)
+            li.list-group-item <strong>300K</strong> operations
+            li.list-group-item Unlimited apps
+            li.list-group-item Unlimited collaborators
             li.list-group-item.center
-              a.btn.btn-default(href="mailto:orville@aerobatic.io") Email for Quote
-            li.list-group-item Everything in the Organization plan but running on your own cloud
+              a.btn.btn-default(href="https://portal.aerobaticapp.com/sign-up?plan=tier2", disabled) Sign Up
+
+        .col-md-3
+          ul.list-group.pricing
+            li.list-group-item.header
+              span.h4 Tier 3
+            li.list-group-item
+              span.h4 $140 / month 
+              span.discount (30% discount)
+            li.list-group-item 1MM operations
+            li.list-group-item Unlimited apps
+            li.list-group-item Unlimited collaborators
+            li.list-group-item.center
+              a.btn.btn-default(href="https://portal.aerobaticapp.com/sign-up?plan=tier3", disabled) Sign Up
+
+        .col-md-3
+          ul.list-group.pricing
+            li.list-group-item.header
+              span.h4 45 Day Trial
+            li.list-group-item
+              span.h4 Try us for free
+            li.list-group-item 20K operations
+            li.list-group-item Unlimited apps
+            li.list-group-item Unlimited collaborators
+            li.list-group-item.center
+              a.btn.btn-default(href="https://portal.aerobaticapp.com/sign-up?plan=trial", disabled) Sign Up
+
+
+      h3 Custom Solutions
+      p Require more than 1MM calls per month or interested in a private instance running on your own infrastructure? Contact us at <a href="mailto:orville@aerobatic.io">orville@aerobatic.io</a> to discuss a custom solution.
+
